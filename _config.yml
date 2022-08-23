@@ -6,10 +6,10 @@
 name: Darksys
 
 # Short bio or description (displayed in the header)
-description: Smoking reverse out. Sometimes I write C code that breaks code! 
+description: Smoking reverse out. Sometimes I write code that breaks code! 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/TheWover/TheWover.github.io/master/images/Item_Needle_and_Thread_Small.png
+avatar: "/assets/img/avatart.jpg"
 
 # Hacker Theme: https://github.com/pages-themes/hacker
 theme: jekyll-theme-hacker
