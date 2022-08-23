@@ -6,7 +6,7 @@ permalink: /about/
 
 Malware and reverse engineer & DFIR Consultant.
 
-RSS Feed: [https://thewover.github.io/rss.xml](https://thewover.github.io/rss.xml)
+RSS Feed: [https://darksys0x.github.io/rss.xml](https://darksys0x.github.io/rss.xml)
 
 ### Contact me
 

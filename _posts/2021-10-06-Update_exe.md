@@ -4,8 +4,6 @@ title:  "Reverse Updater.exe"
 ---
 
 
-# Overview
-
 Updater.exe is C++ executable and attempts to create a process for the target exe in “0.0.0.0” folder of its current path.
 
 The folder **0.0.0.0** might have an executable, if it does, then it is executed by Updater.exe which results in a new process. The target exe was not found in the “0.0.0.0” folder, so it’s unclear what the malware did after executing the exe in the folder.
@@ -18,7 +16,7 @@ The folder **0.0.0.0** might have an executable, if it does, then it is executed
 - Create a new process for the target executable.
 
 ---
-
+			
 # Full Disassembly Analysis
 
 The analysis has been performed using IDA Pro. Both disassembly and pseudocode have been analyzed.

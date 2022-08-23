@@ -4,13 +4,6 @@ title:  "CONFIG.jsp Analysis"
 ---
 
 
-
-
-
-
-
-## Overview
-
 The file “config.jsp” is a WEB page. It contains java code, and the payload is unpacked at runtime. The payload also contains java code in binary form which has various capabilities, for instance, HTTP forwarding, randomized headers in HTTP requests, custom base64 encryption for traffic, etc. 
 
  Refer to Figure 1 for the main code of *CONFIG.JSP* . 

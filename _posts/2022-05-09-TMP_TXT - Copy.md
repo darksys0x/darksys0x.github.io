@@ -5,8 +5,6 @@ title:  "TMP.txt Reversing"
 
 
 
-## Overview
-
 The “tmp.txt” file has ELF binary format. A TCP connection is established with the attacker machine and allows the attacker to perform RCE (Remote Code Execution).
 
 ![Elf file executable ](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Tmp_txt/Untitled.png)
