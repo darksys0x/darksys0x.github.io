@@ -4,14 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Red teaming, adversary emulation, and computer security.
+Malware and reverse engineer & DFIR Consultant.
 
 RSS Feed: [https://thewover.github.io/rss.xml](https://thewover.github.io/rss.xml)
 
 ### Contact me
 
-Twitter: [https://twitter.com/TheRealWover](https://twitter.com/TheRealWover)
+Twitter: [https://twitter.com/Darksys_](https://twitter.com/darksys_)
 
-Keybase: [https://keybase.io/thewover](https://keybase.io/thewover)
 
-E-Mail: [therealwover@protonmail.com](therealwover@protonmail.com)
+E-Mail: [darksys0x](darksys0x@gmail.com)
