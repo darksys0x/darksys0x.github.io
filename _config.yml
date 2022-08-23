@@ -9,7 +9,7 @@ name: Darksys
 description: Smoking reverse out. Sometimes I write code that breaks code! 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: "/assets/img/avatart.jpg"
+avatar: https://github.com/darksys0x/darksys0x.github.io/raw/87859c4d5127aae695ef9e199b49719b296bbf16/assets/images/avatar.jpg
 
 # Hacker Theme: https://github.com/pages-themes/hacker
 theme: jekyll-theme-hacker
