@@ -27,7 +27,7 @@ RSS Feed: [https://darksys0x.github.io/rss.xml](https://darksys0x.github.io/rss.
 
 Github: [https://github.com/darsys0x/](https://github.com/darksys0x/)
 
-E-Mail: [darksys0x](https://mail.google.com/darksys0x@gmail.com)
+E-Mail: [darksys0x@gmail.com](https://darksys0x@gmail.com)
 
 
 
