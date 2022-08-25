@@ -6,15 +6,16 @@ permalink: /about/
 
 ## Digital Forensic Incident Response, RE - Consultant
 
-<p3> A Digital Forensic Incident Response Consultant, and initiative of DFIR department for Reverse and malware analysis. My experience is many years over in responding to nation state, cybercrime, and APT group attacks on critical government, ICS, enterprise, and financial entities; performing incident response, malware analysis and reverse engineering and research malware and development tools to detect malware in memory. I enjoy researching techniques of detection, response, and reduction of false positives while carrying out investigations and adversary pursuit tasks.</p3>
+<p3> A Digital Forensic and Incident Response Consultant, and initiator of DFIR department for malware reverse engineering and analysis. I have many years of experience in responding to nation state, cybercrime, and APT group attacks on critical government, ICS, enterprise, and financial entities; performing incident response, malware analysis and reverse engineering and researching malware and development tools to detect malware in memory. I enjoy researching about techniques of detection, response, and reduction of false positives while carrying out investigations and adversary pursuit tasks.</p3>
+
 
 
 ## Intreasts:
-- Reverse and malaware analyst
-- Incident Response Consulntant
+- Malware reverse engineering and analysis
+- Incident Response consultancy 
 - C, x86 & win32 Developer 
-- Game hacking enthusiastic
-- Full javascript stack developer
+- Game hacking enthusiasts 
+- Full stack javascript developer
 
 
 
