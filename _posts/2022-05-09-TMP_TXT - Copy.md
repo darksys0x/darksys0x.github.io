@@ -31,6 +31,10 @@ Figure 1: loop counter
 
 Figure 3: socketcall syscall
 
+
+
+
+
 In figure 2, the instruction `int  80h` is an interrupt for executing a syscall. This instruction uses the eax register for the syscall number. The other registers used by this instruction are *ebx*, *ecx*, *edx* etc. for arguments to the syscall.
 
 In the first syscall (`int 80h`), the value of “al” register is set to **66h** or **102** by ****calling `mov al, 66h` . The syscall number 102 represents the syscall “socketcall”. This syscall takes two arguments, which means it will use the *ebx* register for the first argument and *ecx* for the second refer to figure 3,4. 
