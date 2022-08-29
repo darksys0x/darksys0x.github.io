@@ -21,7 +21,7 @@ permalink: /about/
 
 ### Contact me
 
-Twitter: [https://twitter.com/Darksys_](https://twitter.com/darksys_)
+Twitter: [https://twitter.com/Darksys_](https://twitter.com/darksys0x)
 
 RSS Feed: [https://darksys0x.github.io/rss.xml](https://darksys0x.github.io/rss.xml)
 
