@@ -67,7 +67,7 @@ In the IIS logs “2021-09-05 15:13:49 ***10.10.4.102*** GET”, the field “**
 Moreover, once the malicious actor has downgraded the privilege of the Exchange powershell Backend, the webshells “blank.aspx”, and “ss.aspx” are uploaded on the path “C:\\inetpub\\wwwroot\\aspnet” by using the “**New-ExchangeCertificate**” technique. Furthermore, the malicious actor used the “New-ExchangeCertificate” cmdlet to save a webshell code within a certificate request via the system certificate store. The webshell code is provided in the ‘SubjectName’ parameter and it will be saved to the disk at path specified by the ‘RequestFile’ parameter. The webshells written by this have been observed on disk with a certificate request extension (.aspx.req). It has been Identified that files on variant paths with the extension ‘ss.aspx.req’, and ‘blank.aspx.req’ which indicates certificate request files saved as ASPX. The below are evidences of command execution from **MSExchange Management** Artifcats:
 
 ```csharp
-***New-ExchangeCertificate\n-GenerateRequest 'True' -RequestFile 'C:\\Program Files\\Microsoft\\Exchange Server\\V15\\FrontEnd\\HttpProxy\\ecp\\auth\\blank.aspx>' -SubjectName 'System.Security.Cryptography.X509Certificates.X500DistinguishedName' -BinaryEncoded 'True' -DomainName ('xxxxx[.darksys.com](http://smo.gov.sa/)
+***New-ExchangeCertificate\n-GenerateRequest 'True' -RequestFile 'C:\\Program Files\\Microsoft\\Exchange Server\\V15\\FrontEnd\\HttpProxy\\ecp\\auth\\blank.aspx>' -SubjectName 'System.Security.Cryptography.X509Certificates.X500DistinguishedName' -BinaryEncoded 'True' -DomainName ('xxxxx[.darksys.com]
 ')\darksys.com[/darksys.com/]
 xxxxx IT/Hamad\S-1-5-21-43453453453-435435345-1482027129-500\nRemote-PowerShell-Unknown\n10544***
 ```
@@ -108,12 +108,12 @@ xxxxx  Hamad A. Admin\S-1-5-21-43453453453-435435345-1482027129-500\nRemote-Powe
 **MSExchange Management** "MailboxExportRequest" artifact snapshot:
 
 ```csharp
-New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx.darksys.com' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'p433zrwewrvmcv''\nxxxxx.sa/xxxxx-OU/xxxxx IT/HamadA. Admin\nS-1-5-21-304353458-1814545535-1482027129-1506\nS-1-5-21-304354354108-1817245355-14820435349-1506\nRemote-PowerShell-Unknown\n10544
+New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx.darksys.com' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'p433zrwewrvmcv''\nxxxxx/xxxxx-OU/xxxxx IT/HamadA. Admin\nS-1-5-21-304353458-1814545535-1482027129-1506\nS-1-5-21-304354354108-1817245355-14820435349-1506\nRemote-PowerShell-Unknown\n10544
 ```
 
 ```csharp
-New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx[.darksys.com](http://smo.gov.sa/)
-' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'rksgzvccymzrvmcv''\[nxxxxx.sa/xxxxx-OU/]
+New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx[.darksys.com]
+' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'rksgzvccymzrvmcv''\[nxxxxx/xxxxx-OU/]
 xxxxx Hamad A. Admin\S-1-5-21-43453453453-435435345-1482027129-500\nRemote-PowerShell-Unknown\n10544
 ```
 
