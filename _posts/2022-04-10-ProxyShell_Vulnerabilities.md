@@ -8,7 +8,6 @@ title:  "ProxyShell vulnerabilities exploited"
 
 
 
-## **Initial access**
 
 To create a web shell on a Microsoft exchange server by exporting from a mailbox, first, the attacker needs to create an item within a mailbox. The attacker usually abuses the **Autodiscover** service by using for example, Metasploit implementation of the **CVE** payload, however, the **Autodiscover** is a feature which allows Outlook administration to configure and mange user profiles for Outlook. The attacker abuses the **Autodiscover** service to leak an Outlook user’s Distinguished Name (DN). The DN is a native address format for recipients in Microsoft Exchange Server, also it is one of the addressing formats for objects within Active Directory in Microsoft Windows Server. The attacker requests a DN to leak the user security identifier (SID) to get access token into exchange server to obtain access token into exchange server, and the (**Autodiscover**) service is a MS Exchange service that is typically used to look up **EWS** endpoint URL. Consequently, a draft email message is created in the user mailbox along with a webshell attached as a file, which is later extracted and accessed via **HTTP** request.
 
@@ -145,7 +144,7 @@ The webshell file was uploaded on Exchange server which contains base64 encoded 
 
 when the webshell is accessed using a browser, two textboxes will be displayed along with a button. One textbox is for the path, usually it is “cmd.exe”, the other textbox is for the arguments that will be passed to the “cmd.exe”. After pressing the button, it will execute the function “xmmmsjowe” on server. This will create a new process for command prompt and execute the command. The result of the command will be sent to the client the label with id “fldfldfw” will show the result indicating whether the command was successfully executed or not.
 
-```vbnet
+```
     <%@ Page LanGuaGe='VB' Debug='tRUe' %>
      <%@ imPOrt NamESpAce='system.IO' %>
      <%@ imPOrt NamESpAce='System.Diagnostics' %>
