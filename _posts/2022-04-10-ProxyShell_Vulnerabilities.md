@@ -177,4 +177,3 @@ when the webshell is accessed using a browser, two textboxes will be displayed a
  </body>
  </html>
 ```
-png
