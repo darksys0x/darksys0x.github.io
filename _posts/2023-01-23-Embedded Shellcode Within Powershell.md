@@ -3,7 +3,6 @@ layout: post
 title:  "Embedded Shellcode Within Powershell"
 ---
 
-# Embedded Shellcode Within Powershell
 
 ## Overview
 
