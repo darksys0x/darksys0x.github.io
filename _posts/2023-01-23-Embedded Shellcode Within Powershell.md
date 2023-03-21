@@ -19,7 +19,7 @@ The base64 string is decoded and the picture 1 below
 
 Decoding the base64 string in the powershell script results in a binary file. Analyzing the header of the binary file shows that it’s a compressed file in “.gz” format as the magic number `1F 8B 08` is present in the header refer to Figure 1:
 
-![Figure 1: Decode base64 string to binry file](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled.png)
+![Figure 1: Decode base64 string to binry file](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled.png)
 
 Figure 1: Decode base64 string to binry file
 
@@ -61,7 +61,7 @@ The function `qwV` which takes two arguments `$hkr0` and `$i1ja` as module name 
 
 The  `FromBase64String` function is called to decode the basce64 string to binary and stored in the Byte array `$bke7S` . The byte array is shown in Figure 2.
 
-![Figure 2: Decoded base64 string.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%201.png)
+![Figure 2: Decoded base64 string.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%201.png)
 
 Figure 2: Decoded base64 string.
 
@@ -79,13 +79,13 @@ In order to debug the shell code, the powershell script is converted to C code, 
 
  
 
-![Untitled](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%202.png)
+![Untitled](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%202.png)
 
   Figure 3: powershell script rewritten in C for code injection
 
 In this example, I injected the code to “notepad” process, which executed the shell code by creating a new thread. In Figure 4, after running the injector, the shellcode is injected into the notepad process, but it waits for input using `getchar()` function call because this allows the team to attach the debugger to the notepad and place breakpoint on the entry point and then start the analysis.
 
-![Figure 4: The notepad process created by the injector.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%203.png)
+![Figure 4: The notepad process created by the injector.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%203.png)
 
 Figure 4: The notepad process created by the injector.
 
@@ -93,7 +93,7 @@ Figure 4: The notepad process created by the injector.
 
 ## Debugging and reversing engineering the shellcode
 
-![Figure 5: The enterypoint of the shellcode.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%204.png)
+![Figure 5: The enterypoint of the shellcode.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%204.png)
 
 Figure 5: The enterypoint of the shellcode.
 
@@ -103,7 +103,7 @@ In figure 5, a breakpoint has been placed on the enterypoint of the shell code. 
 
 By stepping into the code, the third instruction `call 1FB977200D6` is called, refer to Figure 6.
 
-![Figure 6: 1FB977200D6 function](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%205.png)
+![Figure 6: 1FB977200D6 function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%205.png)
 
 Figure 6: 1FB977200D6 function
 
@@ -111,17 +111,17 @@ Figure 6: 1FB977200D6 function
 
 Stepping through the code again and following the call of instruction `call rbp` jumps the control to function `000001FB9772000A` , refer to Figure 7.
 
-![Figure 7: Function 000001FB9772000A](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%206.png)
+![Figure 7: Function 000001FB9772000A](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%206.png)
 
 Figure 7: Function 000001FB9772000A
 
 Stepping even further down the code shows the function names in the RSI register. The addresses of these functions are being accessed and then called to establish a connection with the malicious server, refer to Figure 8 & 9.
 
-![Figure 8: calling WSAStringToAddressA function](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%207.png)
+![Figure 8: calling WSAStringToAddressA function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%207.png)
 
 Figure 8: calling WSAStringToAddressA function
 
-![Figure 9: calling WSASocketW function](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%208.png)
+![Figure 9: calling WSASocketW function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%208.png)
 
 Figure 9: calling WSASocketW function
 
@@ -129,7 +129,7 @@ Figure 9: calling WSASocketW function
 
 As `WSASocketW` function is called, it is evident that the attacker is trying to either send or receive data from the server. This must mean the function `connect` from ws2_32.dll is used to establish the connection. This is confirmed by placing a breakpoint on the `connect` function, and the breakpoint gets hit, refer to Figure 10.
 
-![Figure 10: Breakpoint on connect function from ws2_32.dll function gets hit](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%209.png)
+![Figure 10: Breakpoint on connect function from ws2_32.dll function gets hit](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%209.png)
 
 Figure 10: Breakpoint on connect function from ws2_32.dll function gets hit
 
@@ -147,7 +147,7 @@ int WSAAPI connect(
 
 The server IP can be retrieved from the second argument `name`. In x64, the first argument is passed in RCX register, while the second argument is passed in RDX. Jumping to the RDX value in the debugger dump should reveal the object of the second argument, refer to Figure 11.
 
-![Figure 11: sockaddr_in object in memory](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%2010.png)
+![Figure 11: sockaddr_in object in memory](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%2010.png)
 
 Figure 11: sockaddr_in object in memory
 
@@ -166,7 +166,7 @@ CHAR           sin_zero[8]; // 01 01 02 02 FF 7F BB FF
 
 The second member `sin_port` is the port and the value is 0x3500, and the third member `sin_addr` is the IP address, and the value is 0xBB5910AC. Writing a simple program to convert the two values to dotted IP address and the port is demonstrated in Figure 12. The IP is `172.16.89.187` and the port is `53`.
 
-![Figure 12: Port and ip printed](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%2011.png)
+![Figure 12: Port and ip printed](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%2011.png)
 
 Figure 12: Port and ip printed
 
@@ -180,7 +180,7 @@ The connect function is called to establish a connection with the malicious serv
 
 This code is repeated 10 times because it tries to connect to the server multiple times since there can be failure of connection when calling the `connect` function.
 
-![Figure 13: The Socket connection code.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/Embded_Powershell/Untitled%2012.png)
+![Figure 13: The Socket connection code.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embded_Powershell/Untitled%2012.png)
 
 Figure 13: The Socket connection code.
 

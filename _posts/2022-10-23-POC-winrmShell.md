@@ -3,9 +3,6 @@ layout: post
 title:  "POC-winrmShell"
 ---
 
-
-
-
 The exploit has the ability to remotely execute a command in the exchange powershell via HTTP request. The requirement for this exploit is the username and password of the user since the user needs to be authenticated to access WinRM.
 
 In order to successfully execute the command and get the command output, about four requests are sent:
@@ -21,7 +18,7 @@ Windows Remote Management (WinRM) is a feature of Windows Vista that allows admi
 
 Windows Remote Management (WinRM) service implements the WS-Management protocol for remote management. WS-Management is a standard web services protocol used for remote software and hardware management. The WinRM service listens on the network for WS-Management requests and processes them. The WinRM Service needs to be configured with a listener using winrm.cmd command line tool or through Group Policy in order for it to listen over the network. The WinRM service provides access to WMI data and enables event collection. Event collection and subscription to events require that the service is running. WinRM messages use HTTP and HTTPS as transports. The WinRM service does not depend on IIS but is preconfigured to share a port with IIS on the same machine. The WinRM service reserves the /wsman URL prefix. To prevent conflicts with IIS, administrators should ensure that any websites hosted on IIS do not use the /wsman URL prefix.
 
-![winrm-architecture.png](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/POC-winrmShell/winrm-architecture.png)
+![winrm-architecture.png](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/winrm-architecture.png)
 
 ## Exploit endpoint
 
@@ -48,7 +45,7 @@ headers["Content-Length"] = str(len(soap_data))
 
 The SOAP XML will be sent in the data since it is required by **WinRM**. The code will be placed in a function named  `sendPostRequest`  in the POC, refer to Figure 1.
 
-![Figure 1: sendPostRequest function](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/POC-winrmShell/Untitled.png)
+![Figure 1: sendPostRequest function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/Untitled.png)
 
 Figure 1: sendPostRequest function
 
@@ -58,7 +55,7 @@ The first POST request will contain SOAP XML which is responsible for creating t
 
 PSRP (PowerShell Remoting Protocol) ********is a protcol for PowerShell that allows a lot of flexibility in executing commands with many arguments or large strings. 
 
-![Figure 2: First SOAP XML sent in a POST request to create the shell](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/POC-winrmShell/Untitled%201.png)
+![Figure 2: First SOAP XML sent in a POST request to create the shell](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/Untitled%201.png)
 
 Figure 2: First SOAP XML sent in a POST request to create the shell
 
@@ -66,7 +63,7 @@ For more information about Remote shells, read:
 
 [https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-wsmv/593f3ed0-0c7a-4158-a4be-0b429b597e31](https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-wsmv/593f3ed0-0c7a-4158-a4be-0b429b597e31)
 
-![Figure 3: PSRP for first request ](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/POC-winrmShell/Untitled%202.png)
+![Figure 3: PSRP for first request ](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/Untitled%202.png)
 
 Figure 3: PSRP for first request 
 
@@ -78,7 +75,7 @@ In Figure 3, two PSRP messages are used “SESSION_CAPABILITY” and “INIT_RUN
 
 In order to verify that the shell has been successfully created and the next request (third request) can be sent, the response of this request can be checked for the keyword “RunspaceState”. If the keyboard is found, the next request can be sent, refer to Figure 4.
 
-![Figure 4: Checking the response of second request.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/POC-winrmShell/Untitled%203.png)
+![Figure 4: Checking the response of second request.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/Untitled%203.png)
 
 Figure 4: Checking the response of second request.
 

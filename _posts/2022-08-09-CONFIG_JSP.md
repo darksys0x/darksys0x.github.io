@@ -8,7 +8,7 @@ The file “config.jsp” is a WEB page. It contains java code, and the payload 
 
  Refer to Figure 1 for the main code of *CONFIG.JSP* . 
 
-![Figure 1:The main code of Config.jsp ](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/config_jsp/Untitled.png)
+![Figure 1:The main code of Config.jsp ](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/config_jsp/Untitled.png)
 
 Figure 1:The main code of Config.jsp 
 
@@ -18,7 +18,7 @@ Figure 1:The main code of Config.jsp
 
 In Figure 2, the bytes array contains a payload. The payload is loaded by the “*ClassLoader*”. 
 
-![Figure 2: Payload in byte array. ](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/config_jsp/Untitled%201.png)
+![Figure 2: Payload in byte array. ](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/config_jsp/Untitled%201.png)
 
 Figure 2: Payload in byte array. 
 
@@ -35,7 +35,7 @@ After loading the class, the “*equals*” function is called, and the “*args
 application.getAttribute("itlpDIO0ZXYik5t4Ui70lXKciwUYPvmMr").equals(args);
 ```
 
-![Figure 3: Class loader, and equals function.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/config_jsp/Untitled%202.png)
+![Figure 3: Class loader, and equals function.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/config_jsp/Untitled%202.png)
 
 Figure 3: Class loader, and equals function.
 
@@ -65,11 +65,11 @@ class Hamad1 {
 
 Running the java code will print the payload bytes. The first 4 bytes of the payload `CA FE BA BE` represents the magic number. This magic number is used for java *.class* files. The payload can be decompiled with JADX decompiler. Refer Figure 4, 5.
 
-![Figure 4: Payload printed in hex. ](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/config_jsp/Untitled%203.png)
+![Figure 4: Payload printed in hex. ](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/config_jsp/Untitled%203.png)
 
 Figure 4: Payload printed in hex. 
 
-![Figure 5: Decompiled code of the payload by JADX decompiler.](https://raw.githubusercontent.com/hamad-she/hamad-she.github.io/master/_posts/imgs/config_jsp/Untitled%204.png)
+![Figure 5: Decompiled code of the payload by JADX decompiler.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/config_jsp/Untitled%204.png)
 
 Figure 5: Decompiled code of the payload by JADX decompiler.
 
