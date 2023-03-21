@@ -45,7 +45,7 @@ headers["Content-Length"] = str(len(soap_data))
 
 The SOAP XML will be sent in the data since it is required by **WinRM**. The code will be placed in a function named  `sendPostRequest`  in the POC, refer to Figure 1.
 
-![Figure 1: sendPostRequest function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/Untitled.png )
+![Figure 1: sendPostRequest function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/POC-winrmShell/Untitled.png)
 
 Figure 1: sendPostRequest function
 
