@@ -25,7 +25,9 @@ Twitter: [https://twitter.com/Darksys_](https://twitter.com/darksys0x)
 
 RSS Feed: [https://darksys0x.github.io/rss.xml](https://darksys0x.github.io/rss.xml)
 
-Github: [https://github.com/darsys0x/](https://github.com/%D9%8Bdarksys0x/)
+Github: [https://github.com/darsys0x/](https://github.com/darksys0x/)
+
+linkedin: [darksys0x@gmail.com](https://www.linkedin.com/in/%D9%8Bdarksys0x/)
 
 E-Mail: [darksys0x@gmail.com](https://darksys0x@gmail.com)
 
