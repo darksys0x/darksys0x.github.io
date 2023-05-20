@@ -1,6 +1,9 @@
-# Brute-Force for generate a key to decrypt payload of a webshell
+---
+layout: post
+title:  "Brute-Force for generate a key to decrypt payload of a webshell"
+---
 
-## Overview
+
 
 A webshell is a dangerous tool in the hands of a threat actor, as it can be used to carry out a range of malicious tasks on an infected machine. In this article, I will focus on a webshell that contains an XOR encrypted payload with unknown key.
 
@@ -11,10 +14,6 @@ Decryption is done by applying the XOR operation between the ciphertext and the 
 In XOR encryption, the key is a secret value that is used to encrypt and decrypt the plaintext. The key is combined with the plaintext using the XOR operator to produce ciphertext. To decrypt the ciphertext, the same key is used with the XOR operator again.
 
 The key can be any length as long as it is equal in length to the plaintext. In this webshell, the key is   a 4 byte integer, and the same integer is used for decrypting every character.
-
----
-
-## 
 
 Through this article, we will gain valuable insights into how C# .NET webshells work and how they can be decrypted even if the key is unknown.
 
@@ -253,7 +252,6 @@ Figure 7: The first byte of the PE file.
 
 ---
 
-## 
 
 ## Program to perform a multi-threaded brute-force attack to find the key used in the XOR algorithm
 
