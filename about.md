@@ -32,8 +32,6 @@ permalink: /about/
 
 Twitter: [https://twitter.com/Darksys_](https://twitter.com/darksys0x)
 
-RSS Feed: [https://darksys0x.github.io/rss.xml](https://darksys0x.github.io/rss.xml)
-
 Github: [https://github.com/darsys0x/](https://github.com/darksys0x/)
 
 linkedin: [https://www.linkedin.com/in/darksys0x/](https://www.linkedin.com/in/darksys0x/)
