@@ -11,13 +11,13 @@ permalink: /about/
 
 
 ### Projects:
-- H9: (https://github.com/darksys0x/H9/blob/main/README.md)
-- Ransomware Decryptor: (https://github.com/darksys0x/Ransomware_Key_BruteForce)
+- H9: [https://github.com/darksys0x/H9/blob/main/README.md]
+- Ransomware Decryptor: [https://github.com/darksys0x/Ransomware_Key_BruteForce]
 - Windows Artifact Parsers: (private)
-- LogsAnalytics: (https://github.com/darksys0x/LogsAnalytics)
-- TheLawyers Platform: (https://github.com/TheLawyers/LMS)
-- game-hack: (https://github.com/darksys0x/game-hack)
-- GTA-trainer: (https://github.com/darksys0x/GTA-trainer)
+- LogsAnalytics: [https://github.com/darksys0x/LogsAnalytics]
+- TheLawyers Platform: [https://github.com/TheLawyers/LMS]
+- game-hack: [https://github.com/darksys0x/game-hack]
+- GTA-trainer: [https://github.com/darksys0x/GTA-trainer]
 
 ### Intreasts:
 - Malware reverse engineering and analysis
