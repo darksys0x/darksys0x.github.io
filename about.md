@@ -10,6 +10,17 @@ permalink: /about/
 <p3> Hi, I’m Hamad, also known as darksys0x, I'm digital forensic and incident response consultant, and I’m interested in reverse engineering and malware analysis of any kind, from the low level world of operating systems to the high level world of front-end and browsers.</p3>
 
 
+### Projects:
+- H9: This tool is designed to detect malicious Win32 APIs in the Import Address
+Table(IAT) while the process is running in memory. It can enumerate and collect all
+processes in memory, including both 32-bit and 64-bit processes. Utilizing a highly
+effective rule-based methodology, this tool allows for a more precise and targeted
+detection process.
+- Ransomware Decryptor
+- Windows Artifact Parsers
+- LogsAnalytics
+- TheLawyers Platform
+- game-hack
 
 ### Intreasts:
 - Malware reverse engineering and analysis
