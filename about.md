@@ -11,16 +11,13 @@ permalink: /about/
 
 
 ### Projects:
-- H9: This tool is designed to detect malicious Win32 APIs in the Import Address
-Table(IAT) while the process is running in memory. It can enumerate and collect all
-processes in memory, including both 32-bit and 64-bit processes. Utilizing a highly
-effective rule-based methodology, this tool allows for a more precise and targeted
-detection process.
-- Ransomware Decryptor
-- Windows Artifact Parsers
-- LogsAnalytics
-- TheLawyers Platform
-- game-hack
+- H9: (https://github.com/darksys0x/H9/blob/main/README.md)
+- Ransomware Decryptor: (https://github.com/darksys0x/Ransomware_Key_BruteForce)
+- Windows Artifact Parsers: (https://twitter.com/darksys0x)
+- LogsAnalytics: (https://github.com/darksys0x/LogsAnalytics)
+- TheLawyers Platform: (https://github.com/TheLawyers/LMS)
+- game-hack: (https://github.com/darksys0x/game-hack)
+- GTA-trainer: (https://github.com/darksys0x/GTA-trainer)
 
 ### Intreasts:
 - Malware reverse engineering and analysis
