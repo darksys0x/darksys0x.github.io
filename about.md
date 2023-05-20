@@ -6,7 +6,8 @@ permalink: /about/
 
 #### Digital Forensic Incident Response, RE - Consultant
 
-<p3> A Digital Forensic and Incident Response Consultant, and initiator of DFIR department for malware reverse engineering and analysis. I have many years of experience in responding to nation state, cybercrime, and APT group attacks on critical government, ICS, enterprise, and financial entities; performing incident response, malware analysis and reverse engineering and researching malware and development tools to detect malware in memory. I enjoy researching about techniques of detection, response, and reduction of false positives while carrying out investigations and adversary pursuit tasks.</p3>
+
+<p3> Hi, I’m Hamad, also known as darksys0x, I'm digital forensic and incident response consultant, and I’m interested in reverse engineering and malware analysis of any kind, from the low level world of operating systems to the high level world of front-end and browsers.</p3>
 
 
 
