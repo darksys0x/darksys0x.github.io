@@ -11,14 +11,21 @@ permalink: /about/
 
 
 ### Projects:
-- H9: [https://github.com/darksys0x/H9/blob/main/README.md]
-- HM1-webshell-bruteForce: [https://github.com/darksys0x/HM1-webshell-bruteForce/] (https://github.com/darksys0x/HM1-webshell-bruteForce/)
-- Ransomware Decryptor: [https://github.com/darksys0x/Ransomware_Key_BruteForce]
-- Windows Artifact Parsers: (private)
-- LogsAnalytics: [https://github.com/darksys0x/LogsAnalytics]
-- TheLawyers Platform: [https://github.com/TheLawyers/LMS]
-- game-hack: [https://github.com/darksys0x/game-hack]
-- GTA-trainer: [https://github.com/darksys0x/GTA-trainer]
+ H9: [https://github.com/darksys0x/H9/blob/main/README.md]
+
+ HM1-webshell-bruteForce: [https://github.com/darksys0x/HM1-webshell-bruteForce/] (https://github.com/darksys0x/HM1-webshell-bruteForce/)
+
+ Ransomware Decryptor: [https://github.com/darksys0x/Ransomware_Key_BruteForce](https://github.com/darksys0x/Ransomware_Key_BruteForce)
+
+ Windows Artifact Parsers: (private)
+
+ LogsAnalytics: [https://github.com/darksys0x/LogsAnalytics](https://github.com/darksys0x/LogsAnalytics)
+
+ TheLawyers Platform: [https://github.com/TheLawyers/LMS](https://github.com/TheLawyers/LMS)
+
+ game-hack: [https://github.com/darksys0x/game-hack](https://github.com/darksys0x/game-hack)
+
+ GTA-trainer: [https://github.com/darksys0x/GTA-trainer](https://github.com/darksys0x/GTA-trainer)
 
 ### Intreasts:
 - Malware reverse engineering and analysis.
