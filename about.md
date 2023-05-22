@@ -11,7 +11,7 @@ permalink: /about/
 
 
 ### Projects:
- H9: [https://github.com/darksys0x/H9/blob/main](https://github.com/darksys0x/H9/blob/main)
+ H9: [https://github.com/darksys0x/H9](https://github.com/darksys0x/H9)
 
  HM1-webshell-bruteForce: [https://github.com/darksys0x/HM1-webshell-bruteForce/](https://github.com/darksys0x/HM1-webshell-bruteForce)
 
