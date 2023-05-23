@@ -7,7 +7,7 @@ permalink: /about/
 #### Digital Forensic Incident Response, RE - Consultant
 
 
-<p3> Hi, I’m Hamad, also known as darksys0x, I'm digital forensic and incident response consultant, and I’m interested in reverse engineering and malware analysis of any kind, from the low level world of operating systems to the high level world of front-end and browsers.</p3>
+<p3> Hi, I’m Hamad, also known as darksys0x, I'm digital forensic and incident response consultant, and I’m interested in reverse engineering and malware analysis of any kind, from the low level world of operating systems to the high level world of front-end and browsers. Blogger, horse rider, and deadlifter</p3>
 
 
 ### Projects:
