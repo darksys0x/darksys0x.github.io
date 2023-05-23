@@ -37,7 +37,7 @@ In figure3 the reversed XOR algorithm as shown in action that the rootkit uses t
 
 ---
 
-# Full technical analysis and revers "srvnet2.sys"
+# Full technical analysis and reverse "srvnet2.sys"
 
 In this section, the complete behavior of the rootkit is illustrated.
 
@@ -108,7 +108,7 @@ In figure 9, the ExecuteShellCode function has another shell code on the stack, 
 
 These instructions are used for calling "NtDelayExecution" function:
 
-```vbnet
+```csharp
 NTSYSAPI NTSTATUS NTAPI NtDelayExecution(
 
 IN BOOLEAN Alertable, // take one byte
@@ -158,6 +158,8 @@ Figure 12: Fetches the object for a thread by its handle in second argument
 
 ---
 
+
+
 In Figure 13, the "**KeInitializeApc**" function will initialize the kernel APC since the 7th argument ApcMode is zero as example: http://www.codewarrior.cn/ntdoc/winnt/ke/KeInitializeApc.htm
 
 [http://pravic.github.io/winapi-kmd-rs/doc/km/basedef/enum.KPROCESSOR_MODE.html](http://pravic.github.io/winapi-kmd-rs/doc/km/basedef/enum.KPROCESSOR_MODE.html)
@@ -169,6 +171,8 @@ In Figure 13, the "**KeInitializeApc**" function will initialize the kernel APC 
 Figure 13: prototype of "KeInitializeApc".
 
 ---
+
+
 
 Depending on the ApcMode, NormalRoutine parameter in "KeInitializeApc" will be either usermode or kernel mode routine.
 
@@ -232,7 +236,7 @@ Figure 19: Pseudocode of GetProcessTokenSID and GetTokenSID
 
 The main the shell code is encrypted and stored in the ".data section" of the rootkit. In Figure 6, the "StartRoutine" function will call "decryptShellcode" function to decrypt the shell code using XOR algorithm and the address of the shellcode is passed to this function in the second argument.
 
-```vbnet
+```csharp
 void __fastcall decryptShellCode(char key, _BYTE *shellcode, unsigned __int64 size)
 
 {
@@ -345,7 +349,7 @@ Figure 27: Trace of the callback function used by HTTPListener
 
 In Figure 28, The "ProecssRequest" function will first check whether the request data is empty or not, then it will decrypt the data via "DecrpytPacket" function (Base64 and XOR algorithm). The "wastebuzz" constructor will parse the header of the data, and all 4 capabilities have the same header. The header looks like this:
 
-```vbnet
+```csharp
 o 4 bytes: attack request type
 
 o 4 bytes: attack request string size
@@ -359,7 +363,7 @@ o X bytes: request data
 
 The "attack request type" is an enum, the possible values are:
 
-```vbnet
+```csharp
 enum AttackRequestType {
 
 Command = 1,
