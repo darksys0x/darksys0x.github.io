@@ -99,11 +99,12 @@ Figure 9: code of target processID
 
 In figure 9, the ExecuteShellCode function has another shell code on the stack, however, it is very small with only a few instructions:
 
+```csharp
 - 48 BA 00 00 00 00 00 00 00 00 | mov rdx, 0 <--- second argument (DelayInterval)
 - B1 01 | mov c1, 1 <--- first argument (Alertable)
 - 48 B8 00 00 00 00 00 00 00 00 | mov rax, 0 <--- address of NtDelayExecution function
 - FF D0 | call rax <--- call NtDelayExecution function
-
+```
 ![https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image10.png](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image10.png)
 
 These instructions are used for calling "NtDelayExecution" function:
@@ -140,9 +141,9 @@ A new thread in suspended state is created in the usermode process in function "
 
 Figure 10: Calling "NtDelayExecution" function.
 
-Figure 10: Calling "NtDelayExecution" function.
 
-/di
+
+---
 
 ![Figure 11: "allocationAddress" is copied the first 8 bytes, "funcAddress"is copied to the second 8 bytes.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image13.png)
 
@@ -176,6 +177,7 @@ Figure 13: prototype of "KeInitializeApc".
 
 Depending on the ApcMode, NormalRoutine parameter in "KeInitializeApc" will be either usermode or kernel mode routine.
 
+```csharp
 enum KPROCESSOR_MODE
 
 {
@@ -185,7 +187,7 @@ KernelMode = 0,
 UserMode = 1,
 
 }
-
+```
 Moreover, the "KeInsertQueueApc" will insert the APC to the queue, if successful, the thread that was previously created in usermode space will be resumed by calling "NtResumeThread". This will execute the 24 byte shellcode in the target process and then the big shellcode (2nd argument of "ExecuteShellCode" function) will be later executed by another APC via the NormalRoutine APC "sub_140006840" passed to "KeInitializeAPC", refer to Figure 14.
 
 ![Figure 14: Executing the kernel mode APC](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image16.png)
