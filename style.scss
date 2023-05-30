@@ -26,7 +26,7 @@ html {
 }
 
 body {
-	margin: 0;
+  margin: 0;
   padding: 0;
   background: $body-background url("../images/bkg.png") 0 0;
   color: $body-foreground;
@@ -91,7 +91,7 @@ p {
 a {
   color: $blue;
   text-decoration: none;
-	cursor: pointer;
+  cursor: pointer;
   &:hover, &:active {
     color: $blue;
   }
