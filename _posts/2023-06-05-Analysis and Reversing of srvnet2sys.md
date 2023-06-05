@@ -464,3 +464,17 @@ This capability allows the attacker to load and run dll files in the memory of t
 **o 4 bytes: file data size**
 
 **o X bytes: file data array**
+
+
+---
+
+
+# IoCs
+
+## srvnet2.sys:
+
+- MD5: 286bd9c2670215d3cb4790aac4552f22
+- SHA-1: 6fab0699567e1480c57cbd68710808585195f193
+  
+   
+   [https://www.virustotal.com/gui/file/f6c316e2385f2694d47e936b0ac4bc9b55e279d530dd5e805f0d963cb47c3c0d](https://www.virustotal.com/gui/file/f6c316e2385f2694d47e936b0ac4bc9b55e279d530dd5e805f0d963cb47c3c0d)
