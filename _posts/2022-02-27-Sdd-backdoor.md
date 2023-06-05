@@ -145,3 +145,11 @@ Table 1 TTPs
 | Privilege Escalation | Abuse Elevation Control Mechanism: Bypass User Account Control | Place the DLL backdoor under IIS Modules, as well as loading additional DLL payloads using Rundll. |
 | Defense Evasion | Deobfuscate/Decode Files or Information | Using AES encryption and Base64 encoding. |
 | Command and Control | Application Layer Protocol: Web Protocols | Adversary communicates with the backdoor through HTTP POST. |
+
+# IoCs
+- SHA-2: 4f6351b8fb3f49ff0061ee6f338cd1af88893ed20e71e211e8adb6b90e50a3b8 
+  
+
+
+
+  [https://www.virustotal.com/gui/file/4f6351b8fb3f49ff0061ee6f338cd1af88893ed20e71e211e8adb6b90e50a3b8](https://www.virustotal.com/gui/file/4f6351b8fb3f49ff0061ee6f338cd1af88893ed20e71e211e8adb6b90e50a3b8)
