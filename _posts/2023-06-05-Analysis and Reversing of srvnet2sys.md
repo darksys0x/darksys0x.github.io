@@ -206,7 +206,7 @@ Figure 15: The APC function that will add usermode APC to the queue "KeInsertQue
 
 # The rootkit act privilege escalation
 
-In Figure 9, the rootkit checks for token SID "S-1-5-18" since it belongs to local system account which is used by the operating system. This allows the rootkit to find a process with full privileges for injecting the shellcode. "IsProcessSID_S_1_5_18" function will look up the process object by its id, then it calls "IsSID_S_1_5_18" function as shown in figure 16.
+In Figure 9, the rootkit checks for token SID "S-1-5-18" since it belongs to local system account which is used by the operating system. This allows the rootkit to find a process with full privileges for injecting the shellcode. "IsProcessSID_S_1_5_18" function will look up the process object by its id, then it calls "SID_S_1_5_18" function as shown in figure 16.
 
 ![Figure 16: Check whether the SID of a process token is S-1-5-18](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image18.png)
 

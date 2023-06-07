@@ -11,7 +11,7 @@ permalink: /about/
 
 
 
-<p3> Hey there, I’m Hamad, or you might know me as darksys0x. I wear many hats in the digital realm—part digital forensic guru, part incident response maestro. Reverse engineering and malware analysis are my bread and butter, taking me from the depths of operating systems to the glitzy front-end world of browsers. I’ve dissected approximately over a hundred malicious software, unraveling their sneaky secrets and obfuscation. And when I’m not unleashing my cyber skills, you’ll find me rocking it on a horse or deadlifting some serious weight. So buckle up and get ready for a snark-filled journey with me. Let’s dive into this captivating cyberverse together!</p3>
+<p3> Hey there, I’m Hamad, or you might know me as darksys0x. I work as a digital forensic and incident response consultant. I’m interested in reverse engineering and malware analysis of any kind, from the low level world of operating systems to the high level world of front-end and browsers. I’ve dissected approximately over a hundred malicious software, unraveling their sneaky secrets and obfuscation.  I enjoy blogging, horseback riding, and deadlifting, finding inspiration and balance in these activities.</p3>
 
 
 ### Projects:
