@@ -7,7 +7,11 @@ permalink: /about/
 #### Digital Forensic Incident Response, RE - Consultant
 
 
-<p3> Hi, I’m Hamad, also known as darksys0x, I'm digital forensic and incident response consultant, and I’m interested in reverse engineering and malware analysis of any kind, from the low level world of operating systems to the high level world of front-end and browsers. Throughout my career, I have successfully analyzed approximately over 100 samples of malicious programs. In my spare time, I enjoy blogging, horseback riding, and deadlifting.</p3>
+
+
+
+
+<p3> Hey there, I’m Hamad, or you might know me as darksys0x. I wear many hats in the digital realm—part digital forensic guru, part incident response maestro. Reverse engineering and malware analysis are my bread and butter, taking me from the depths of operating systems to the glitzy front-end world of browsers. I’ve dissected approximately over a hundred malicious software, unraveling their sneaky secrets and obfuscation. And when I’m not unleashing my cyber skills, you’ll find me rocking it on a horse or deadlifting some serious weight. So buckle up and get ready for a snark-filled journey with me. Let’s dive into this captivating cyberverse together!</p3>
 
 
 ### Projects:
@@ -27,12 +31,13 @@ permalink: /about/
 
  GTA-trainer: [https://github.com/darksys0x/GTA-trainer](https://github.com/darksys0x/GTA-trainer)
 
-### Intreasts:
+### Intreasts/Achievements:
 - Malware reverse engineering and analysis.
 - Incident Response consultancy. 
 - C, x86 & win32 Developer. 
 - Game hacking enthusiasts. 
 - Full stack javascript developer.
+- Compleated the rigorus flare-on9 2022 Competition.
 
 
 
