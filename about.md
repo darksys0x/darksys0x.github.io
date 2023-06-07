@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-#### Digital Forensic Incident Response, RE - Consultant
+
 
 
 
