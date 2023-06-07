@@ -2,17 +2,10 @@
 layout: post
 title:  "ASPX Webshells analysis"
 ---
-
+While the origin of the specific webshell I’ll be discussing remains unknown, its impact and functionality are worth exploring. In this blog, we’ll unravel the inner workings of this enigmatic tool, examining its potential applications, risks, and countermeasures. So, join me as we embark on an illuminating journey into the depths of an ASPX webshell, its origins shrouded in secrecy.
 The analyzed webshells consist of the following: 
 
-# App.asbx
 
-- Page_Load function: return environment variable "APP_POOL_ID" value when page is loaded and the "
-- APP_POOL_ID : The name of the application pool that is running the IIS worker process handling the request
-- Execute function: Creates a new cmd process "cmd.exe /c time /T" to get the current time
-- Query function: Execute SQL query and return output
-- Upload: Create File with data in temp folder and return path to file
-- Fix: change file creation, last access, and last write time.
 
 # IP.aspx
 
