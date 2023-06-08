@@ -13,7 +13,7 @@ The rootkit uses XOR encryption to hide strings such as function names which are
 
 ![Figure 1: This function is like a wrapper for "KeStackAttachProcess".](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image1.png)
 
-Figure 1: This function is like a wrapper for "KeStackAttachProcess".
+Figure 1: This function is like a wrapper for "**KeStackAttachProcess**".
 
 In Figure 1, "**KeStackAttachProcessStr**" function is called to get the function name string, then it is passed to "**GetFunctionAddress**" call which will return the address. At the end of the screenshot (line 11), "**KeStackAttachProcess**" is called by its address.
 
@@ -31,7 +31,7 @@ Figure 2: This function returns a pointer to string "KeStackAttachProcess".
 
 ![Figure 3: Decryption of string "KeStackAttachProcess" using XOR algorithm.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image3.png)
 
-Figure 3: Decryption of string "KeStackAttachProcess" using XOR algorithm.
+Figure 3: Decryption of string "**KeStackAttachProcess**" using XOR algorithm.
 
 In figure3 the reversed XOR algorithm as shown in action that the rootkit uses this algorithm all over place to hide the strings, although the strings are decrypted at runtime.
 
@@ -41,7 +41,7 @@ In figure3 the reversed XOR algorithm as shown in action that the rootkit uses t
 
 In this section, the complete behavior of the rootkit is depicted.
 
-The rootkit initiates by checking whether the safe boot mode is disabled. This check is crucial because the rootkit is unlikely to function properly in safe boot mode due to the imposed restrictions. If safe boot mode is disabled, the rootkit proceeds to invoke the "CreateKeThreadForInjectingShellcode" function. This function is responsible for creating a kernel thread specifically designed to inject the shellcode into user-mode processes, as illustrated in Figure 4.
+The rootkit initiates by checking whether the safe boot mode is disabled. This check is crucial because the rootkit is unlikely to function properly in safe boot mode due to the imposed restrictions. If safe boot mode is disabled, the rootkit proceeds to invoke the "**CreateKeThreadForInjectingShellcode**" function. This function is responsible for creating a kernel thread specifically designed to inject the shellcode into user-mode processes, as illustrated in Figure 4.
 By creating a kernel thread dedicated to this task, the rootkit ensures efficient and controlled injection of the shellcode across multiple processes in the user-mode space. This injection mechanism enables the rootkit to gain control and execute arbitrary code within those processes, allowing for various malicious activities or privilege escalation.
 
 ![Figure 4: entre point of the rootkit](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image4.png)
@@ -52,13 +52,13 @@ In figure 5, the function creates a new thread for the shell code injection. Whe
 
 ![Figure 5: Code of "CreateKeThreadForInjectingShellcode"](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image5.png)
 
-Figure 5: Code of "CreateKeThreadForInjectingShellcode"
+Figure 5: Code of "**CreateKeThreadForInjectingShellcode**"
 
 ---
 
 In Figure 6, the "StartRoutine" function serves as the entry point for the new kernel thread. This function implements a loop that iterates through all running processes at a 5-second interval, attempting to identify a suitable process ID for injecting the shellcode. The shellcode itself is located in the (.data section) of the rootkit.
-Furthermore, in Figure 8, line 24 showcases the "AllocMemWithDataInProcess_0" function. This function is responsible for allocating memory on the heap within the target process. It reserves a chunk of memory and then copies the shellcode into this allocated memory region. By doing so, the shellcode becomes effectively placed within the target process's memory space, ready for execution.
-It's important to note that the shellcode decryption takes place in the "decryptShellCode" function, called at runtime. This function is responsible for decrypting the shellcode, allowing it to be executed in its original form within the target process.
+Furthermore, in Figure 8, line 24 showcases the "**AllocMemWithDataInProcess_0**" function. This function is responsible for allocating memory on the heap within the target process. It reserves a chunk of memory and then copies the shellcode into this allocated memory region. By doing so, the shellcode becomes effectively placed within the target process's memory space, ready for execution.
+It's important to note that the shellcode decryption takes place in the "**decryptShellCode**" function, called at runtime. This function is responsible for decrypting the shellcode, allowing it to be executed in its original form within the target process.
 
 The "**ExecuteShellCode**" function in line 26 will execute the shell code in the target usermode process.
 ---
@@ -69,13 +69,13 @@ Figure 6: The entry point function for the new kernel thread
 
 "**GetTargetProcessId**" is called in "**StartRoutine**", it will enumerate through all running usermode processes, then compare the process names with hardcoded names, if any of the name matches, the process is ignored, refer to Figure 7. The hardcoded process names are:
 
-- csrss.exe
-- smss.exe
-- services.exe
-- winlogon.exe
-- vmtoolsd.exe
-- vmware
-- lsass.exe
+- **csrss.exe**
+- **smss.exe**
+- **services.exe**
+- **winlogon.exe**
+- **vmtoolsd.exe**
+- **vmware**
+- **lsass.exe**
 
 ![Figure 7: pseudocode of GetTargetProcessId](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image7.png)
 
@@ -91,7 +91,7 @@ Figure 8: Decrypted names of process names in the rootkit
 
 ---
 
-After making sure the process name does not match with the ignored names, the rootkit will check the SID of the process token, refer to Figure 9. The root looks for process tokens with SID "S-1-5-18" because this SID is for local system account that is used by the operating system. This will give the shellcode full privileges when it is loaded in the usermode space. For more details, refer to section "The rootkit act privilege escalation".
+After making sure the process name does not match with the ignored names, the rootkit will check the SID of the process token, refer to Figure 9. The root looks for process tokens with SID "**S-1-5-18**" because this SID is for local system account that is used by the operating system. This will give the shellcode full privileges when it is loaded in the usermode space. For more details, refer to section "The rootkit act privilege escalation".
 
 Moreover, the rootkit checks for peb lock and then checks whether the process is critical or not, which means if the process will break on termination or not, and finally, the process id is returned.
 
@@ -123,7 +123,7 @@ IN PLARGE_INTEGER DelayInterval // pointer take 8 bytes
 
 ---
 
-The 8 zeros in the first instruction mov rdx, 0 are replaced by the DelayInterval, and the 8 zeroes in the 3rd instruction mov rax, 0 are replaced by the address of "NtDelayExecution" function, moreover, the '**NtDelayExecution**' function is used to halt a thread in the target usermode process. This will allow the rootkit to add an APC ( Asynchronous Procedure Call) to the queue, so the thread can execute it. Find more detailes about APC "[https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs](https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs)".
+The 8 zeros in the first instruction mov **rdx**, 0 are replaced by the DelayInterval, and the 8 zeroes in the 3rd instruction mov rax, 0 are replaced by the address of "**NtDelayExecution**" function, moreover, the '**NtDelayExecution**' function is used to halt a thread in the target usermode process. This will allow the rootkit to add an APC ( Asynchronous Procedure Call) to the queue, so the thread can execute it. Find more detailes about APC "[https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs](https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs)".
 
 ![Figure 9: Second shell code buffer.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image11.png)
 
@@ -131,11 +131,11 @@ Figure 9: Second shell code buffer.
 
 ---
 
-Since the second argument of "**NtDelayExecution**" is a pointer, it needs an address to a value in usermode space. The rootkit will allocate memory in the usermode space of 8 bytes in function "AllocMemWithDataInProcess_0", refer Figure 10.
+Since the second argument of "**NtDelayExecution**" is a pointer, it needs an address to a value in usermode space. The rootkit will allocate memory in the usermode space of 8 bytes in function "**AllocMemWithDataInProcess_0**", refer Figure 10.
 
-"**SetBufferDataStr**" function will first allocate 24 bytes memory in kernel for the shellcode, then the address of the allocated memory (8 bytes usermode memory) is copied to the shell code buffer and the address of **NtDelayExecution** is also copied to the shellcode, refer Figure 9.
+"**SetBufferDataStr**" function will first allocate 24 bytes memory in kernel for the shellcode, then the address of the allocated memory (8 bytes usermode memory) is copied to the shell code buffer and the address of "**NtDelayExecution**" is also copied to the shellcode, refer Figure 9.
 
-The memory allocated by "**SetBufferDataStr**" resides in kernel space, so it cannot be accessed in usermode. The rootkit will allocate 24 bytes again, but this time it will be allocated in the usermode space of the target process in function "AllocMemWithDataInProcess_0".
+The memory allocated by "**SetBufferDataStr**" resides in kernel space, so it cannot be accessed in usermode. The rootkit will allocate 24 bytes again, but this time it will be allocated in the usermode space of the target process in function "**AllocMemWithDataInProcess_0**".
 
 A new thread in suspended state is created in the usermode process in function "**CreateThreadInProcess**" in order to execute the 24 byte shellcode later.
 
@@ -177,7 +177,7 @@ Figure 13: prototype of "KeInitializeApc".
 
 
 
-Depending on the ApcMode, NormalRoutine parameter in "KeInitializeApc" will be either usermode or kernel mode routine.
+Depending on the ApcMode, NormalRoutine parameter in "**KeInitializeApc**" will be either usermode or kernel mode routine.
 
 ```csharp
 enum KPROCESSOR_MODE
@@ -191,9 +191,9 @@ UserMode = 1,
 }
 ```
 
-Furthermore, after the APC is initialized, the "KeInsertQueueApc" function is used to insert the APC into the queue. If the insertion is successful, the thread that was previously created in user-mode space will be resumed by invoking the "NtResumeThread" function. This action triggers the execution of the 24-byte shellcode within the target process.
+Furthermore, after the APC is initialized, the "**KeInsertQueueApc**" function is used to insert the APC into the queue. If the insertion is successful, the thread that was previously created in user-mode space will be resumed by invoking the "NtResumeThread" function. This action triggers the execution of the 24-byte shellcode within the target process.
 
-Subsequently, the larger shellcode (which is the second argument of the "ExecuteShellCode" function) will be executed by another APC. This occurs through the NormalRoutine APC, denoted as "sub_140006840", which is passed to the "KeInitializeAPC" function, as shown in Figure 14. The NormalRoutine APC, when triggered, will execute the big shellcode within the target process.
+Subsequently, the larger shellcode (which is the second argument of the "**ExecuteShellCode**" function) will be executed by another APC. This occurs through the NormalRoutine APC, denoted as "**sub_140006840**", which is passed to the "KeInitializeAPC" function, as shown in Figure 14. The NormalRoutine APC, when triggered, will execute the big shellcode within the target process.
 
 This sequence of actions allows for the staged execution of the shellcode, starting with the initial 24-byte shellcode and followed by the larger, more complex shellcode. The use of APCs provides a mechanism to execute code within the target process while maintaining control and coordination from the user-mode space.
 
@@ -203,7 +203,7 @@ Figure 14: Executing the kernel mode APC
 
 ---
 
-Furthermore, in figure 15, When the kernel APC "sub_140006840" is called, it will initialize the usermode APC, which is the big shellcode and place it in the queue "KeInsertQueueApc". This shellcode will unpack a .NET executable in memory and execute it. It has anti-debugging code to prevent debuggers from attaching to its process.
+Furthermore, in figure 15, When the kernel APC "**sub_140006840**" is called, it will initialize the usermode APC, which is the big shellcode and place it in the queue "**KeInsertQueueApc**". This shellcode will unpack a .NET executable in memory and execute it. It has anti-debugging code to prevent debuggers from attaching to its process.
 
 ![Figure 15: The APC function that will add usermode APC to the queue "KeInsertQueueApc".](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image17.png)
 
@@ -213,7 +213,7 @@ Figure 15: The APC function that will add usermode APC to the queue "KeInsertQue
 
 # The rootkit act privilege escalation
 
-In Figure 9, the rootkit checks for token SID "S-1-5-18" since it belongs to local system account which is used by the operating system. This allows the rootkit to find a process with full privileges for injecting the shellcode. "IsProcessSID_S_1_5_18" function will look up the process object by its id, then it calls "SID_S_1_5_18" function as shown in figure 16.
+In Figure 9, the rootkit checks for token SID "**S-1-5-18**" since it belongs to local system account which is used by the operating system. This allows the rootkit to find a process with full privileges for injecting the shellcode. "**IsProcessSID_S_1_5_18**" function will look up the process object by its id, then it calls "**SID_S_1_5_18**" function as shown in figure 16.
 
 ![Figure 16: Check whether the SID of a process token is S-1-5-18](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image18.png)
 
@@ -225,7 +225,7 @@ In Figure 17, the function "IsSID_S_1_5_18" follows these steps:
 
 1. It initializes a Unicode string.
 2. The function then calls "GetProcessTokenSID" and passes the address of the Unicode string as the second argument. This function retrieves the SID (Security Identifier) associated with the process token and stores it in the Unicode string.
-3. After obtaining the process token's SID, it is compared with the string "S-1-5-18" for a match.
+3. After obtaining the process token's SID, it is compared with the string "**S-1-5-18**" for a match.
 
 
 This comparison is significant because "S-1-5-18" represents the well-known SID for the Local System account in Windows. By comparing the retrieved SID with this string, the function determines if the current process is running under the Local System account. If there is a match, it indicates that the process has elevated privileges and can perform certain privileged operations or access sensitive resources.
@@ -250,7 +250,7 @@ Figure 19: Pseudocode of GetProcessTokenSID and GetTokenSID
 
 # Main Shell Code
 
-The main shellcode is encrypted and resides in the ".data section" of the rootkit. In Figure 6, the "StartRoutine" function is responsible for calling the "decryptShellcode" function, which utilizes the XOR algorithm to decrypt the shellcode. The address of the encrypted shellcode is passed as the second argument to the "decryptShellcode" function. This allows the function to locate the encrypted shellcode within the .data section and perform the necessary decryption process.
+The main shellcode is encrypted and resides in the ".data section" of the rootkit. In Figure 6, the "**StartRoutine**" function is responsible for calling the "**decryptShellcode**" function, which utilizes the XOR algorithm to decrypt the shellcode. The address of the encrypted shellcode is passed as the second argument to the "**decryptShellcode**" function. This allows the function to locate the encrypted shellcode within the .data section and perform the necessary decryption process.
 
 ```csharp
 void __fastcall decryptShellCode(char key, _BYTE *shellcode, unsigned __int64 size)
@@ -298,7 +298,7 @@ Figure 21: shellcode offsite in the rootkit through HexEdito
 
 ---
 
-Furthermore, the rootkit file has an offset of 0xAC00 for the shellcode. By removing the bytes preceding this offset, the modified file can be saved as "srvnet2_block.bin," where the first byte represents the shellcode. Subsequently, a program needs to be developed to decrypt the shellcode within the newly created file and execute it by spawning a new thread.
+Furthermore, the rootkit file has an offset of **0xAC00** for the shellcode. By removing the bytes preceding this offset, the modified file can be saved as "srvnet2_block.bin," where the first byte represents the shellcode. Subsequently, a program needs to be developed to decrypt the shellcode within the newly created file and execute it by spawning a new thread.
 
 In Figure 22, memory is allocated for the shellcode file, then it is loaded into memory using C file functions, the shellcode in memory is then decrypted using XOR algorithm. A new thread is created by calling " **CreateThread**" function.
 
@@ -320,11 +320,11 @@ Figure 23: Running the shellcode using the C program and finding the unpacked .N
 
 # Analysis of unpacked .NET PE malware
 
-The dumped .NET PE malware in figure 23 is programmed in C#. the malware contains back door in, moreover, the malware listens on multiple IIS site bindings and waits for the attacker to send http requests into the victim machine.
+The dumped **.NET** PE malware in figure 23 is programmed in C#. the malware contains back door in, moreover, the malware listens on multiple IIS site bindings and waits for the attacker to send http requests into the victim machine.
 
 However, this part will continue brief behavior analysis.
 
-The malware has full capability such as Download, Upload, **RunDll**, Execute commands in "cmd". In Figure 24, the malware calls the function "**Heartreport_they.Jar_avocado_enhance**" to get a list of URLs to start listening on.
+The malware has full capability such as Download, Upload, "**RunDll**", Execute commands in "cmd". In Figure 24, the malware calls the function "**Heartreport_they.Jar_avocado_enhance**" to get a list of URLs to start listening on.
 
 ![Figure 24: Entry point of the .NET malware where it starts listening for HTTP requests](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image26.png)
 
@@ -332,19 +332,19 @@ Figure 24: Entry point of the .NET malware where it starts listening for HTTP re
 
 ---
 
-The URL for heartbeat is dynamically generated by invoking the "Heartreport_they.Jar_avocado_enhance" function. In Figure 25, you can observe the code line responsible for creating the URL.
+The URL for heartbeat is dynamically generated by invoking the "**Heartreport_they.Jar_avocado_enhance**" function. In Figure 25, you can observe the code line responsible for creating the URL.
 
 ```
-`hashSet.Add(string.Format(Heartreport_they.caution_degree(), binding.Protocol, binding.EndPoint.Port, arg).ToLower());`
+hashSet.Add(string.Format(Heartreport_they.caution_degree(), binding.Protocol, binding.EndPoint.Port, arg).ToLower());
 ```
 
-`"Heartreport_they.caution_degree()"`  will return "{0}://+:{1}/{2}/". The first argument is for the protocol, the second is for the port, the third is for the path name. The URL may look something like this: **[http://+:80/someNameHere/](http://+/someNameHere/)**
+`Heartreport_they.caution_degree()`  will return "{0}://+:{1}/{2}/". The first argument is for the protocol, the second is for the port, the third is for the path name. The URL may look something like this: (http://+:80/someNameHere/) (http://+/someNameHere/)
 
 ![Figure 25: Get a list of URLs for HTTPListener](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image27.png)
 
 Figure 25: Get a list of URLs for HTTPListener
 
-Moreover, once the **HTTPListener** starts listening, upon receiving HTTP requests from the attacker, the callback function "**Heartreport_they.Oak_reject_deny**" will be called.
+Moreover, once the "**HTTPListener**" starts listening, upon receiving HTTP requests from the attacker, the callback function "**Heartreport_they.Oak_reject_deny**" will be called.
 
 ![Figure 26: HTTPListener callback](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image28.png)
 
@@ -409,7 +409,26 @@ The "request data" is the data of the capability. This data will have a differen
 
 # **Command capability**
 
-The parser for command capability is called before the "command" function, refer Figure 29. The structure looks like this:
+In Figure 29, the parser for command capability is invoked before the "command" function. The structure of the code can be represented as follows:
+
+```
+Command Capability Parser
+    |
+    +-- Parse command capability parameters
+    |
+    +-- Verify command capability permissions
+    |
+    +-- Invoke the "command" function with the parsed parameters
+
+Command Function
+    |
+    +-- Execute the specified command based on the parsed parameters
+```
+The parser for command capability is responsible for parsing the parameters related to the command capability, such as the command name, options, and arguments. It ensures that the provided parameters are valid and formatted correctly.
+Once the parameters are parsed, the parser verifies the permissions associated with the command capability. This step ensures that the user or process attempting to execute the command has the necessary privileges or authorization.
+Finally, with the parsed and verified parameters, the parser calls the "command" function, passing the parsed parameters as arguments. The "command" function then performs the execution of the specified command, utilizing the parsed parameters to carry out the desired functionality.
+
+This structure enables the rootkit to handle command capabilities effectively, ensuring proper parsing, permission validation, and execution of commands based on the provided parameters.
 
 **o 4 bytes: file name size**
 
