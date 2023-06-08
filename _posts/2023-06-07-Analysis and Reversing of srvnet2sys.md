@@ -39,9 +39,10 @@ In figure3 the reversed XOR algorithm as shown in action that the rootkit uses t
 
 # Full technical analysis and reverse "srvnet2.sys"
 
-In this section, the complete behavior of the rootkit is illustrated.
+In this section, the complete behavior of the rootkit is depicted.
 
-The rootkit checks if the safeboot mode is disabled that since the rootkit probably won't run in safeboot mode due to safeboot restrictions, and then it calls "CreateKeThreadForInjectingShellcode" to create a kernel thread for injecting the shell code into usermode processes refer figure 4.
+The rootkit initiates by checking whether the safe boot mode is disabled. This check is crucial because the rootkit is unlikely to function properly in safe boot mode due to the imposed restrictions. If safe boot mode is disabled, the rootkit proceeds to invoke the "CreateKeThreadForInjectingShellcode" function. This function is responsible for creating a kernel thread specifically designed to inject the shellcode into user-mode processes, as illustrated in Figure 4.
+By creating a kernel thread dedicated to this task, the rootkit ensures efficient and controlled injection of the shellcode across multiple processes in the user-mode space. This injection mechanism enables the rootkit to gain control and execute arbitrary code within those processes, allowing for various malicious activities or privilege escalation.
 
 ![Figure 4: entre point of the rootkit](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image4.png)
 
@@ -55,11 +56,12 @@ Figure 5: Code of "CreateKeThreadForInjectingShellcode"
 
 ---
 
-In Figure 6 the "**StartRoutine**" is the entry point for the new kernel thread. This function will loop through all running processes every 5 seconds and try to find a process id for injecting the shellcode. The shellcode is located in (.data section). The "**decryptShellCode**" function is called for decrypting the shellcode at runtime.
-
-Line 24 in figure 8, "**AllocMemWithDataInProcess_0**" will allocate memory on the heap in the target process and copy the shellcode to this allocated memory.
+In Figure 6, the "StartRoutine" function serves as the entry point for the new kernel thread. This function implements a loop that iterates through all running processes at a 5-second interval, attempting to identify a suitable process ID for injecting the shellcode. The shellcode itself is located in the (.data section) of the rootkit.
+Furthermore, in Figure 8, line 24 showcases the "AllocMemWithDataInProcess_0" function. This function is responsible for allocating memory on the heap within the target process. It reserves a chunk of memory and then copies the shellcode into this allocated memory region. By doing so, the shellcode becomes effectively placed within the target process's memory space, ready for execution.
+It's important to note that the shellcode decryption takes place in the "decryptShellCode" function, called at runtime. This function is responsible for decrypting the shellcode, allowing it to be executed in its original form within the target process.
 
 The "**ExecuteShellCode**" function in line 26 will execute the shell code in the target usermode process.
+---
 
 ![Figure 6: The entry point function for the new kernel thread](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image6.png)
 
@@ -188,7 +190,12 @@ UserMode = 1,
 
 }
 ```
-Moreover, the "KeInsertQueueApc" will insert the APC to the queue, if successful, the thread that was previously created in usermode space will be resumed by calling "NtResumeThread". This will execute the 24 byte shellcode in the target process and then the big shellcode (2nd argument of "ExecuteShellCode" function) will be later executed by another APC via the NormalRoutine APC "sub_140006840" passed to "KeInitializeAPC", refer to Figure 14.
+
+Furthermore, after the APC is initialized, the "KeInsertQueueApc" function is used to insert the APC into the queue. If the insertion is successful, the thread that was previously created in user-mode space will be resumed by invoking the "NtResumeThread" function. This action triggers the execution of the 24-byte shellcode within the target process.
+
+Subsequently, the larger shellcode (which is the second argument of the "ExecuteShellCode" function) will be executed by another APC. This occurs through the NormalRoutine APC, denoted as "sub_140006840", which is passed to the "KeInitializeAPC" function, as shown in Figure 14. The NormalRoutine APC, when triggered, will execute the big shellcode within the target process.
+
+This sequence of actions allows for the staged execution of the shellcode, starting with the initial 24-byte shellcode and followed by the larger, more complex shellcode. The use of APCs provides a mechanism to execute code within the target process while maintaining control and coordination from the user-mode space.
 
 ![Figure 14: Executing the kernel mode APC](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image16.png)
 
@@ -196,7 +203,7 @@ Figure 14: Executing the kernel mode APC
 
 ---
 
-Moreover, in figure 15, When the kernel APC "sub_140006840" is called, it will initialize the usermode APC, which is the big shellcode and place it in the queue "KeInsertQueueApc". This shellcode will unpack a .NET executable in memory and execute it. It has anti-debugging code to prevent debuggers from attaching to its process.
+Furthermore, in figure 15, When the kernel APC "sub_140006840" is called, it will initialize the usermode APC, which is the big shellcode and place it in the queue "KeInsertQueueApc". This shellcode will unpack a .NET executable in memory and execute it. It has anti-debugging code to prevent debuggers from attaching to its process.
 
 ![Figure 15: The APC function that will add usermode APC to the queue "KeInsertQueueApc".](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image17.png)
 
@@ -214,7 +221,14 @@ Figure 16: Check whether the SID of a process token is S-1-5-18
 
 ---
 
-"IsSID_S_1_5_18" will first initialize a Unicode string, then it calls "GetProcessTokenSID" and passes the address of the Unicode string as second argument. This Unicode string will hold the SID of the process token, then it is compared with the string "S-1-5-18", refer to Figure 17.
+In Figure 17, the function "IsSID_S_1_5_18" follows these steps:
+
+1. It initializes a Unicode string.
+2. The function then calls "GetProcessTokenSID" and passes the address of the Unicode string as the second argument. This function retrieves the SID (Security Identifier) associated with the process token and stores it in the Unicode string.
+3. After obtaining the process token's SID, it is compared with the string "S-1-5-18" for a match.
+
+
+This comparison is significant because "S-1-5-18" represents the well-known SID for the Local System account in Windows. By comparing the retrieved SID with this string, the function determines if the current process is running under the Local System account. If there is a match, it indicates that the process has elevated privileges and can perform certain privileged operations or access sensitive resources.
 
 ![Figure 17: Get token SID and compare it with string "S-1-5-18"](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image19.png)
 
@@ -236,7 +250,7 @@ Figure 19: Pseudocode of GetProcessTokenSID and GetTokenSID
 
 # Main Shell Code
 
-The main the shell code is encrypted and stored in the ".data section" of the rootkit. In Figure 6, the "StartRoutine" function will call "decryptShellcode" function to decrypt the shell code using XOR algorithm and the address of the shellcode is passed to this function in the second argument.
+The main shellcode is encrypted and resides in the ".data section" of the rootkit. In Figure 6, the "StartRoutine" function is responsible for calling the "decryptShellcode" function, which utilizes the XOR algorithm to decrypt the shellcode. The address of the encrypted shellcode is passed as the second argument to the "decryptShellcode" function. This allows the function to locate the encrypted shellcode within the .data section and perform the necessary decryption process.
 
 ```csharp
 void __fastcall decryptShellCode(char key, _BYTE *shellcode, unsigned __int64 size)
@@ -260,12 +274,12 @@ The rootkit decrypts the shellcode by calling executing:
 
 `decryptShellCode(57, shell_code, 0x74344ui64);`
 
-The first argument is the key for the XOR algorithm, the second argument is the address of the shellcode in the .data section, and the third argument is the size of the shellcode. This shellcode can be executed in a few ways:
+The XOR algorithm utilizes the first argument as the key. The second argument represents the address of the shellcode within the .data section, while the third argument denotes the size of the shellcode. There are several approaches to executing this shellcode:
 
 1. Running the rootkit to execute the shellcode.
 2. Dumping the shellcode from rootkit file, loading it to a program, decrypting the shellcode, then executing it by creating a thread.
 
-> By choosing option 2, the shellcode needs to be dumped to a file. This can be done manually by opening the rootkit in a hex editor searching for the starting bytes of the shellcode, refer Figure 20.
+> To proceed with option 2, where the shellcode is executed by creating a new thread, the shellcode needs to be extracted and saved to a file. This can be accomplished manually by opening the rootkit file in a hex editor and searching for the specific starting bytes of the shellcode, as indicated in Figure 20. Once the shellcode is identified, it can be selected and saved to a separate file for further analysis or execution.
 > 
 
 ![Figure 20: The shellcode in .data section](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image22.png)
@@ -284,7 +298,7 @@ Figure 21: shellcode offsite in the rootkit through HexEdito
 
 ---
 
-Moreover, the offset of the shellcode is 0xAC00 in the rootkit file. The bytes before this offset can be deleted and the file can be saved as "srvnet2_block.bin", so the first byte of the file is the shellcode. The next step is to write a program to decrypt the shellcode in the newly created file and execute it by creating a new thread.
+Furthermore, the rootkit file has an offset of 0xAC00 for the shellcode. By removing the bytes preceding this offset, the modified file can be saved as "srvnet2_block.bin," where the first byte represents the shellcode. Subsequently, a program needs to be developed to decrypt the shellcode within the newly created file and execute it by spawning a new thread.
 
 In Figure 22, memory is allocated for the shellcode file, then it is loaded into memory using C file functions, the shellcode in memory is then decrypted using XOR algorithm. A new thread is created by calling " **CreateThread**" function.
 
@@ -318,9 +332,11 @@ Figure 24: Entry point of the .NET malware where it starts listening for HTTP re
 
 ---
 
-The URL for heartbeat is created dynamically by calling "Heartreport_they.Jar_avocado_enhance". In Figure 25, the line for creating the URL can be seen:
+The URL for heartbeat is dynamically generated by invoking the "Heartreport_they.Jar_avocado_enhance" function. In Figure 25, you can observe the code line responsible for creating the URL.
 
+```
 `hashSet.Add(string.Format(Heartreport_they.caution_degree(), binding.Protocol, binding.EndPoint.Port, arg).ToLower());`
+```
 
 `"Heartreport_they.caution_degree()"`  will return "{0}://+:{1}/{2}/". The first argument is for the protocol, the second is for the port, the third is for the path name. The URL may look something like this: **[http://+:80/someNameHere/](http://+/someNameHere/)**
 
