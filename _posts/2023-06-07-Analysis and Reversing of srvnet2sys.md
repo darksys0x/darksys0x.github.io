@@ -424,8 +424,8 @@ Command Function
     |
     +-- Execute the specified command based on the parsed parameters
 ```
-The parser for command capability is responsible for parsing the parameters related to the command capability, such as the command name, options, and arguments. It ensures that the provided parameters are valid and formatted correctly.
-Once the parameters are parsed, the parser verifies the permissions associated with the command capability. This step ensures that the user or process attempting to execute the command has the necessary privileges or authorization.
+In general, the parser for command capability is responsible for parsing the parameters related to the command capability, such as the command name, options, and arguments. It ensures that the provided parameters are valid and formatted correctly.
+Once the parameters are parsed, the parser verifies the permissions associated with the command capability. 
 Finally, with the parsed and verified parameters, the parser calls the "command" function, passing the parsed parameters as arguments. The "command" function then performs the execution of the specified command, utilizing the parsed parameters to carry out the desired functionality.
 
 This structure enables the rootkit to handle command capabilities effectively, ensuring proper parsing, permission validation, and execution of commands based on the provided parameters.
