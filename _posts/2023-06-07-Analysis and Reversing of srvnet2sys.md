@@ -123,7 +123,7 @@ IN PLARGE_INTEGER DelayInterval // pointer take 8 bytes
 
 ---
 
-The 8 zeros in the first instruction mov rdx, 0 are replaced by the DelayInterval, and the 8 zeroes in the 3rd instruction mov rax, 0 are replaced by the address of "NtDelayExecution" function, moreover, the **NtDelayExecution** function is used to halt a thread in the target usermode process. This will allow the rootkit to add an APC ( Asynchronous Procedure Call) to the queue, so the thread can execute it. Find more detailes about APC "[https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs](https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs)".
+The 8 zeros in the first instruction mov rdx, 0 are replaced by the DelayInterval, and the 8 zeroes in the 3rd instruction mov rax, 0 are replaced by the address of "NtDelayExecution" function, moreover, the '**NtDelayExecution**' function is used to halt a thread in the target usermode process. This will allow the rootkit to add an APC ( Asynchronous Procedure Call) to the queue, so the thread can execute it. Find more detailes about APC "[https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs](https://docs.microsoft.com/en-us/windows-hardware/drivers/kernel/types-of-apcs)".
 
 ![Figure 9: Second shell code buffer.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/srvnet2/image11.png)
 
