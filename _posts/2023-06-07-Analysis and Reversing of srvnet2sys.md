@@ -508,8 +508,11 @@ This capability allows the attacker to load and run dll files in the memory of t
 
 ## srvnet2.sys:
 
-- MD5: 286bd9c2670215d3cb4790aac4552f22
-- SHA-1: 6fab0699567e1480c57cbd68710808585195f193
-  
+- MD5:	4dd6250eb2d368f500949952eb013964
+- SHA-1:	6802e2d2d4e6ee38aa513dafd6840e864310513b
+- SHA-256:	f6c316e2385f2694d47e936b0ac4bc9b55e279d530dd5e805f0d963cb47c3c0d
    
    [https://www.virustotal.com/gui/file/f6c316e2385f2694d47e936b0ac4bc9b55e279d530dd5e805f0d963cb47c3c0d](https://www.virustotal.com/gui/file/f6c316e2385f2694d47e936b0ac4bc9b55e279d530dd5e805f0d963cb47c3c0d)
+
+
+
