@@ -73,6 +73,9 @@ The FromBase64String function is called to decode the basce64 string to binary a
 ![Figure 2: Decoded base64 string.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embeded_Powershell/Untitled%201.png)
 
 Figure 2: Decoded base64 string.
+ 
+---
+
 
 The byte array `$bke7S` contains the shellcode. The function `j0Aiv` is used to call the VirtualAlloc function. The size of the shellcode is passed in the second argument of VirtualAlloc as allocation size. 
 
@@ -212,7 +215,7 @@ rule application {
       description = "shellcoode - file application"
       author = "darksys0x"
       reference = "darksys0x"
-      date = "2022-12-14"
+      date = "2023-09-14"
       hash1 = "da513bb8d89a42f2cc896357b6c8278db63a9d00f3836396732730ffe82cbb58"
    strings:
       $s1 = "$oC = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer((qwV kernel32.dll VirtualAlloc), (j0Aiv @([IntPtr]" ascii
@@ -245,7 +248,7 @@ rule powershell {
       description = "shellcoode - file powershell.bin"
       author = "darksys0x"
       reference = "darksys0x"
-      date = "2022-12-14"
+      date = "2023-09-14"
       hash1 = "3ffcb6e3419dd26033b32b35e6e2709ef429d398de0170a83f2b70edf471f21d"
    strings:
       $x1 = "=powershell.exe -nop -w hidden -noni -c if([IntPtr]::Size -eq 4){$b=$env:windir+'\\\\sysnative\\\\WindowsPowerShell\\\\v1.0\\\\p" ascii
