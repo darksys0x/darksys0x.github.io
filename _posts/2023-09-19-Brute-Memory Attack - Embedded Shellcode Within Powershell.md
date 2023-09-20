@@ -1,12 +1,18 @@
-# Embedded Shellcode Within Powershell
+---
+layout: post
+title:  "Memory Attack - Embedded Shellcode Within Powershell"
+---
 
-## Overview
+
 
 Shell code is a set of assembly instructions that often is used within a malware to preform several tasks on the infected machine. During the analysis, in powershell\operation event logs, the team observed an event with eventID “4104” (0x1008) where a suspicious encoded powershell command was executed on the machine. 
 
 Analysis of the encoded powershell command shows the command implanting a shell code in the memory of the victim machine.
 
 The objective of the shell code is staging where the attacker maintains continued control over a compromised system by installing persistent backdoors to establish foothold, as well as the ability to move laterally over the environment by using remote PowerShell.
+
+
+---
 
 ## Shellcode analysis
 
@@ -68,10 +74,12 @@ Figure 2: Decoded base64 string.
 
 The byte array $bke7S contains the shellcode. The function j0Aiv is used to call the VirtualAlloc function. The size of the shellcode is passed in the second argument of VirtualAlloc as allocation size. The thread argument is set to MEM_COMMIT | MEM_RESERVE since MEM_COMMIT and MEM_RESERVE equates to 0x1000 and 0x2000, respectively.
 The fourth argument which is the memory protection is set to PAGE_EXECUTE_READWRITE .
+
 This allocates the memory for the shellcode on the heap. The Copy function is called to copy the shellcode from the byte array $bke7S to the allocated memory.
 The CreateThread function is called to execute the shellcode in the allocated memory by creating a new thread. The WaitForSingleObject function is called to wait for the thread to complete the execution of the shellcode.
  
 
+---
 ## Convert powershell to C code
 
 In order to debug the shell code, the powershell script is converted to C code, refer to Figure 3.
