@@ -32,6 +32,7 @@ Figure 1: Decode base64 string to binry file
 
 Decompressing the binary file results in a file “application” with following contents:
 
+
 ```powershell
 function qwV {
 	Param ($hkr0, $i1ja)		
@@ -62,6 +63,7 @@ $szJL = [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer(
 [System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer((qwV kernel32.dll WaitForSingleObject), (j0Aiv @([IntPtr], [Int32]))).Invoke($szJL,0xffffffff) | Out-Null
 ```
 
+---
  
 
 The function `qwV` which takes two arguments `$hkr0` and `$i1ja` as module name and name of the module function, respectively, then calls GetModuleHandle and returns the result of `GetProcAddress` to get the address of module function.
@@ -72,7 +74,10 @@ The FromBase64String function is called to decode the basce64 string to binary a
 
 Figure 2: Decoded base64 string.
 
-The byte array `$bke7S` contains the shellcode. The function `j0Aiv` is used to call the VirtualAlloc function. The size of the shellcode is passed in the second argument of VirtualAlloc as allocation size. The thread argument is set to `MEM_COMMIT | MEM_RESERVE` since MEM_COMMIT and MEM_RESERVE equates to `0x1000` and `0x2000`, respectively.
+The byte array `$bke7S` contains the shellcode. The function `j0Aiv` is used to call the VirtualAlloc function. The size of the shellcode is passed in the second argument of VirtualAlloc as allocation size. 
+
+The thread argument is set to `MEM_COMMIT | MEM_RESERVE` since MEM_COMMIT and `MEM_RESERVE` equates to `0x1000` and `0x2000`, respectively.
+
 The fourth argument which is the memory protection is set to `PAGE_EXECUTE_READWRITE` .
 
 This allocates the memory for the shellcode on the heap. The Copy function is called to copy the shellcode from the byte array $bke7S to the allocated memory.
@@ -92,11 +97,14 @@ In order to debug the shell code, the powershell script is converted to C code, 
 
 In this example, I injected the code to “notepad” process, which executed the shell code by creating a new thread. In Figure 4, after running the injector, the shellcode is injected into the notepad process, however; it waits for input using `getchar()` function call because this allows to attach the debugger to the notepad and place breakpoint on the entry point and then start the analysis. 
 
+
+---
 ![Figure 4: The notepad process created by the injector.](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embeded_Powershell/Untitled%203.png)
 
 Figure 4: The notepad process created by the injector.
 
 ---
+
 
 ## Debugging and reversing engineering the shellcode
 
@@ -134,7 +142,9 @@ Figure 9: calling WSASocketW function
 
 ---
 
-As `WSASocketW` function is called, it is evident that the attacker is trying to either send or receive data from the server. This must mean the function `connect` from `ws2_32.dll` is used to establish the connection. This is confirmed by placing a breakpoint on the `connect` function, and the breakpoint gets hit, refer to Figure 10.
+As `WSASocketW` function is called, it is evident that the attacker is trying to either send or receive data from the server. This must mean the function `connect` from `ws2_32.dll` is used to establish the connection. 
+
+This is confirmed by placing a breakpoint on the `connect` function, and the breakpoint gets hit, refer to Figure 10.
 
 ![Figure 10: Breakpoint on connect function from ws2_32.dll function gets hit](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embeded_Powershell/Untitled%209.png)
 
@@ -184,6 +194,7 @@ Figure 12: Port and ip printed
 In Figure 13, the socket connection code is shown and the win32 API functions are labeled. The `WSAStartup` function is called to initiate the Winsock DLL used by the process, then the code enters into a loop, where the `WSASocket` function is called to create the socket. The `WSAStringToAddress` function is called to convert the IP and port to an object. 
 
 The connect function is called to establish a connection with the malicious server. The `VirtualAlloc` function is used to allocate the memory for a new shellcode which will be later downloaded using `recv` function and then executed. After calling `VirtualAlloc`, the memory address is moved into `r15` register, and if the `recv` function succeeds, the `jmp r15` instruction jumps to the newly downloaded shellcode and executes it. The `VirtualFree` function is called to free the shellcode after execution, and the `closesocket` function is called to close the socket.
+
 
 This code is repeated 10 times because it tries to connect to the server multiple times since there can be failure of connection when calling the `connect` function.
 
