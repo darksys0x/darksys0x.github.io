@@ -5,9 +5,7 @@ title:  "Memory Attack - Embedded Shellcode Within Powershell"
 
 
 
-Shell code is a set of assembly instructions that often is used within a malware to preform several tasks on the infected machine. During the analysis, in powershell\operation event logs, the team observed an event with eventID “4104” (0x1008) where a suspicious encoded powershell command was executed on the machine. 
-
-Analysis of the encoded powershell command shows the command implanting a shell code in the memory of the victim machine.
+Shell code is a set of assembly instructions that often is used within a malware to preform several tasks on the infected machine. While conducting an analysis of PowerShell operation event logs, I came across an event bearing the eventID "4104" (0x1008) in which an encoded PowerShell command of a dubious nature was executed.
 
 The objective of the shell code is staging where the attacker maintains continued control over a compromised system by installing persistent backdoors to establish foothold, as well as the ability to move laterally over the environment by using remote PowerShell.
 
