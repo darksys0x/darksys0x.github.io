@@ -43,7 +43,7 @@ permalink: /about/
 
 ### Contact me
 
-Twitter: [https://twitter.com/Darksys_](https://twitter.com/darksys0x)
+Twitter: [https://twitter.com/darksys0x](https://twitter.com/darksys0x)
 
 Github: [https://github.com/darsys0x/](https://github.com/darksys0x/)
 
